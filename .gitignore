@@ -1,0 +1,22 @@
+# Ignore everything
+*
+
+
+!.gitignore
+!lorem-ipsum.md
+!README.md
+!template.less
+
+!html-preview/
+!html-preview/*/
+html-preview/*.*
+
+!html-preview/html/
+!html-preview/html/*
+!html-preview/theme/
+!html-preview/theme/*
+
+html-preview/theme/*.*
+!html-preview/theme/default/*
+
+**/.DS_Store

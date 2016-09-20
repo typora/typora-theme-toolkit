@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Typora</title>
+	<link rel="stylesheet" href="../theme/default/lib/bootstrap.css">
+	<link rel="stylesheet" href="../theme/default/codemirror.css">
+	<link rel="stylesheet" href="../theme/default/lib/font-awesome.min.css">
+	<link rel="stylesheet" href="../theme/default/lib/ionicons.min.css">
+	<link rel="stylesheet" href="../theme/default/typora-icon.css">
+
+	<link rel="stylesheet" href="../theme/default/base.css">
+	<link rel="stylesheet" href="../theme/default/base-control.css">
+	<link rel="stylesheet" href="../theme/default/window.css">
+	<link rel="stylesheet" href="../theme/default/megamenu.css">
+
+	<link rel="stylesheet" href="../theme/test.css">
+</head>
+
+<body class="typora-node unibody-window show-footer megamenu-opened mouse-entered">
+	<header>
+
+		
+		
+		<div id="top-titlebar" class="stopselect">
+			<span id="w-titlebar-left">
+				<span class="toolbar-icon" style="float:left;" id="w-menu-btn">
+					<!--span class="ty-left-align"></span-->
+					<span class="ty-menu-btn-area">
+						<span class="ty-menu-btn-area-sub ty-menu-btn-area-sub1"></span>
+						<span class="ty-menu-btn-area-sub ty-menu-btn-area-sub2"></span>
+						<span class="ty-menu-btn-area-sub ty-menu-btn-area-sub3"></span>
+					</span>
+				</span>
+				<span class="title-text" id="title-text">Typora</span>
+			</span>
+			<span id="w-traffic-lights">
+	            <span id="w-min" class="btn toolbar-icon">
+					<span class="ty-icon ty-minimize10"></span>
+	            </span>
+	            <span id="w-max-group" class="">
+	            	 <span id="w-max" class="btn toolbar-icon">
+						<span class="ty-icon ty-maximize10"></span>
+		            </span>
+		            <span id="w-full" class="btn toolbar-icon">
+						<span class="ion-arrow-resize"></span>
+		            </span>
+		            <span id="w-pin" class="btn toolbar-icon">
+						<span class="ion-pin"></span>
+		            </span>
+	            </span>
+	            <span id="w-unpin" class="btn toolbar-icon">
+					<span class="ion-pin"></span>
+		        </span>
+	            <span id="w-restore" class="btn toolbar-icon">
+					<svg x="0px" y="0px" viewBox="0 0 10.2 10.2" style="width:12px;height:12px;" data-reactid=".1.$win.0.$=10.$=11.$=11.0"><path d="M2.1,0v2H0v8.1h8.2v-2h2V0H2.1z M7.2,9.2H1.1V3h6.1V9.2z M9.2,7.1h-1V2H3.1V1h6.1V7.1z" data-reactid=".1.$win.0.$=10.$=11.$=11.0.0"></path></svg>
+		        </span>
+	            <span id="w-close" class="btn toolbar-icon">
+					<span class="ty-icon ty-close10"></span>
+	            </span>
+            </span>
+		</div>
+		<div class="megamenu-menu stopselect" id="megamenu-menu-sidebar">
+			<div class="megamenu-menu-header quiet-focus" tabindex="-1">
+				<a class="menu-style-btn" id="megamenu-back-btn"><i class="ion-android-arrow-back"></i></a>
+				<a id="megamenu-menu-header-title"></a>
+			</div>
+			<ul class="dropdown-menu megamenu-menu-list" id="megamenu-menu-list">
+				<li><a role="menuitem" id="m-new" title="New"><i class="fa fa-file-o"></i><span>New</span></a></li>
+			    <li><a role="menuitem" id="m-open" class="" title="Open"><i class="fa fa-folder-open-o"></i><span>Open</span></a></li>
+			    <li>
+			    	<a role="menuitem" id="m-save" title="Save"><i class="fa fa-save"></i><span>Save</span></a>
+			    	<a role="menuitem" id="m-saved" title="Saved"><i class="fa fa-check-circle-o"></i><span>Saved</span></a>
+			    </li>
+			    <li><a role="menuitem" id="m-save-as" title="Save As.."><i class="fa fa-paste"></i><span>Save As</span></a></li>
+			    <li class="divider"></li>
+			    <li><a role="menuitem" id="m-export" title="Export"><i class="fa fa-share-square-o"></i><span>Export</span></a></li>
+			    <li><a role="menuitem" id="m-print" title="Print"><i class="fa fa-print"></i><span>Print</span></a></li>
+			    <li class="divider"></li>
+			    <li><a role="menuitem" id="m-theme" title="Theme"><i class="fa fa-magic"></i><span>Theme</span></a></li>
+			    <li><a role="menuitem" id="m-preference" title="Preference" class="active"><i class="fa fa-cog"></i><span>Preference</span></a></li>
+			    <li><a role="menuitem" id="m-about" title="About"><i class="fa fa-question-circle"></i><span>About</span></a></li>
+			    <li class="divider"></li>
+			    <li><a role="menuitem" id="m-close" title="Close"><i class="fa fa-power-off"></i><span>Close</span></a></li>
+			</ul>
+		</div>
+	</header>
+	
+	
+	
+	
+
+	<div id="megamenu-content" data-pattern="pattern/cubes.png" class="megamenu-content stopselect">
+			<table style="display:none;">
+		    <tbody><tr id="recent-file-item-pattern" class="recent-file-item">
+		       <td class="recent-file-name"></td>
+			   <td class="recent-file-dir"></td>
+			   <td class="recent-file-path" style="display:none;"></td>
+		    </tr>
+		    </tbody></table>
+		<div class="megamenu-section hide" id="megamenu-section-open">
+			<div class="megamenu-menu-panel">
+				<h1>Open</h1>
+				<div class="long-btn" id="m-open-local">
+					<i class="ion-folder"></i><span>Open From ...</span>
+				</div>
+			</div>
+			<div class="megamenu-menu-panel">
+				<h2>Import as Markdown</h2>
+				<div class="long-btn" id="m-import-local">
+					<i class="ion-folder"></i><span>Import <span class="preference-item-hint"> docx/wiki/rst/org/..</span></span>
+				</div>
+			</div>
+			<div class="megamenu-menu-panel">
+				<h2>Recent Documents</h2>
+				<div id="recent-file-panel">
+					<input id="recent-file-panel-search-input" class="quiet-focus search" type="text" placeholder="  Search for..." readonly="">
+					<div class="dropdown" id="recent-file-panel-action-btn-container">
+					<button id="recent-file-panel-action-btn" class="btn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-ellipsis-h"></i></button>
+					<ul class="dropdown-menu" aria-labelledby="recent-file-panel-action-btn">
+						<li><a href="#" id="megamenu-clear-recet-documents">Clear Recent Documents</a></li>
+  					</ul>
+  					</div>
+					<table class="table table-striped table-hover " id="recent-document-table">
+						<thead>
+                        	<tr>
+	                            <th width="40%">Name</th>
+	                            <th class="right">Path</th>
+                        	</tr>
+                    	</thead>
+					  <tbody class="list-js-list"></tbody>
+					</table> 
+				</div>
+			</div>
+		</div>
+		<div class="megamenu-section hide" id="megamenu-section-export">
+			<div class="megamenu-menu-panel">
+				<h1>Export As..</h1>
+				<div class="long-btn-wrap">
+					<div class="long-btn" id="export-as-html">
+						<i class="fa fa-file-code-o"></i><span>HTML</span>
+					</div>
+					<div class="long-btn" id="export-as-html-plain">
+						<i class="fa fa-file-code-o"></i><span>HTML (without styles)</span>
+					</div>
+				</div>
+				<div class="long-btn-wrap">
+					<div class="long-btn" id="export-as-pdf">
+						<i class="fa fa-file-pdf-o "></i><span>PDF</span>
+					</div>
+				</div>
+			</div>
+			<div class="megamenu-menu-panel megamenu-menu-content-section">
+				<h1>More Formats</h1>
+				<div class="long-btn-wrap">
+					<div class="long-btn" id="export-as-docx">
+						<i class="fa fa-file-word-o"></i><span>Word (.docx)</span>
+					</div>
+					<div class="long-btn" id="export-as-odt">
+						<i class="fa fa-file-text "></i><span>OpenOffice</span>
+					</div>
+					<div class="long-btn" id="export-as-rtf">
+						<i class="fa fa-file-text "></i><span>RTF</span>
+					</div>
+					<div class="long-btn" id="export-as-epub">
+						<i class="fa fa-book"></i><span>Epub</span>
+					</div>
+					<div class="long-btn" id="export-as-latex">
+						<i class="fa fa-file-code-o "></i><span>LaTeX</span>
+					</div>
+					<div class="long-btn" id="export-as-wiki">
+						<i class="fa fa-file-text"></i><span>Media Wiki</span>
+					</div>
+					<div class="long-btn" id="export-as-rst">
+						<i class="fa fa-file-text"></i><span>reStructuredText</span>
+					</div>
+					<div class="long-btn" id="export-as-textile">
+						<i class="fa fa-file-text"></i><span>Textile</span>
+					</div>
+					<div class="long-btn" id="export-as-opml">
+						<i class="fa fa-file-code-o"></i><span>OPML</span>
+					</div>
+				</div>
+				<p class="preference-item-hint hide-when-pandoc-installed" style="margin-top: 30px; display: none;"> File formats under "More Formats" sections needs <a class="open-pandoc-guide">Pandoc to be installed</a>.</p>
+			</div>
+		</div>
+		<div class="megamenu-section" id="megamenu-section-preference"><div class="megamenu-menu-panel" id="preference-content">
+    <h1>Apperance</h1>
+    <div class="preference-item">
+        <div class="preference-item-key">
+            Windows Style<br>
+            <span class="preference-item-hint">(applied after restart)</span>
+        </div>
+        <div class="preference-item-setting">
+            <div class="preference-item-setting-col">
+                <div class="radio">
+                    <label><input type="radio" aria-label="Native" name="windowStyleType" value="nativeWindow" readonly=""><span>System native</span></label>
+                </div>
+            </div>
+            <div class="preference-item-setting-col">
+                <div class="radio">
+                    <label><input type="radio" aria-label="Unibody" name="windowStyleType" value="framelessWindow" readonly=""><span>Unibody</span></label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="preference-item">
+        <div class="preference-item-key">
+            Custom Themes
+        </div>
+        <div class="preference-item-setting">
+            <div class="preference-item-setting-col">
+                <button class="btn" type="button" id="open-theme-folder-btn">Open Theme Folder</button>
+            </div>
+        </div>
+    </div>
+    <div class="preference-item">
+        <div class="preference-item-key">
+            Status Bar
+        </div>
+        <div class="preference-item-setting">
+            <div class="checkbox">
+                <label><input type="checkbox" id="show-status-bar-btn" readonly=""><span>Show status bar</span></label>
+            </div>
+            <!--div class="checkbox">
+                <label><input type="checkbox" ><span>Always show wordcount</span></label>
+            </div-->
+        </div>
+    </div>
+    <div class="preference-item">
+        <div class="preference-item-key">
+            Font Size
+        </div>
+        <div class="preference-item-setting">
+            <div class="preference-item-setting-col">
+                <div class="radio">
+                    <label><input type="radio" aria-label="Native" name="fontSize" id="use-auto-font-size-btn" readonly=""><span>Auto</span></label>
+                </div>
+            </div>
+            <div class="preference-item-setting-col">
+                <div class="radio">
+                    <label><input type="radio" aria-label="Unibody" name="fontSize" id="use-custom-font-size-btn" readonly=""><span>Customize</span><span id="custom-font-size-input-wrap"><input id="custom-font-size-input" type="number" max="24" size="2" min="9" value="0" readonly=""></span></label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h1>Markdown</h1>
+    <div class="preference-item">
+        <div class="preference-item-key">
+            Syntax Support<br>
+            <span class="preference-item-hint">(applied after restart)</span>
+        </div>
+        <div class="preference-item-setting">
+            <div class="checkbox">
+                <label><input type="checkbox" name="enable_inline_math" readonly=""><span>Inline math</span></label>
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox" name="enable_subscript" readonly=""><span>Subscript</span></label>
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox" name="enable_superscript" readonly=""><span>Superscript</span></label>
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox" name="enable_highlight" readonly=""><span>Highlight</span></label>
+            </div>
+             <div class="checkbox">
+                <label><input type="checkbox" name="enable_diagram" readonly=""><span>Diagrams</span><span> (Sequence, Flowchart and Mermaid)</span></label>
+            </div>
+        </div>
+    </div>
+    <div class="preference-item">
+        <div class="preference-item-key">
+            Syntax Preference<br>
+            <span class="preference-item-hint">(only applied for styles created from menu or shortcut keys)</span>
+        </div>
+        <div class="preference-item-setting">
+            <div>
+                <span>Heading Style</span>
+                <select id="preference-heading-style">
+                    <option value="0">atx (#)</option>
+                    <option value="1">setext (===)</option>
+                </select>
+            </div>
+            <div>
+                <span>Unodered List</span>
+                <select id="preference-ul-style">
+                    <option value="0">-</option>
+                    <option value="1">+</option>
+                    <option value="2">*</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <h1>Editor</h1>
+    <span class="preference-item-hint">(some options will be applied after restart)</span>
+    <div class="preference-item">
+        <div class="preference-item-key">
+            Save &amp; Recover
+        </div>
+        <div class="preference-item-setting">
+            <div class="checkbox">
+                <label><input type="checkbox" id="preference-auto-save" readonly=""><span>Auto save</span></label>
+            </div>
+            <button class="btn" type="button" id="preference-open-draft-folder">Recover Unsaved Drafts</button>
+        </div>
+    </div>
+    <div class="preference-item">
+        <div class="preference-item-key">
+            Auto Pair
+        </div>
+        <div class="preference-item-setting">
+            <div class="checkbox">
+                <label><input type="checkbox" id="preference_auto_pair" readonly=""><span>Auto pair brackets and quotes</span></label>
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox" id="preference_auto_pair_markdown" readonly=""><span>Auto pair common markdown symbols</span></label>
+            </div>
+        </div>
+    </div>
+    <div class="preference-item">
+        <div class="preference-item-key">
+            Live Rendering
+        </div>
+        <div class="preference-item-setting">
+            <div class="checkbox">
+                <label><input type="checkbox" id="preference_expand_block" readonly=""><span>Display markdown source for simple blocks (including headings, etc) on focus</span></label>
+            </div>
+        </div>
+    </div>
+    <div class="preference-item">
+        <div class="preference-item-key">
+            Emoji Autocomplete
+        </div>
+        <div class="preference-item-setting">
+            <div class="preference-item-setting-col">
+                <div class="radio">
+                    <label><input type="radio" aria-label="Native" name="autocompleteTrigger" id="trigger-emoji-autocomplete-off" readonly=""><span>Trigger by ESC key</span></label>
+                </div>
+            </div>
+            <div class="preference-item-setting-col">
+                <div class="radio">
+                    <label><input type="radio" aria-label="Unibody" name="autocompleteTrigger" id="trigger-emoji-autocomplete-on" readonly=""><span>Trigger automatically</span></label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="preference-item">
+        <div class="preference-item-key">
+            Code Fences
+        </div>
+        <div class="preference-item-setting">
+            <div class="checkbox">
+                <label><input type="checkbox" name="show_line_numbers_for_fence" readonly=""><span>Display line number</span></label>
+            </div>
+        </div>
+    </div>
+    <div class="preference-item">
+        <div class="preference-item-key">
+            Default Copy Behavior<br>
+             <span class="preference-item-hint">(ctrl+c)</span>
+        </div>
+        <div class="preference-item-setting">
+            <div class="checkbox">
+                <label><input type="checkbox" name="copy_markdown_by_default" readonly=""><span>Copy markdown source by default</span></label>
+            </div>
+        </div>
+    </div>
+    <div class="preference-item">
+        <div class="preference-item-key">
+            Indent Size on Save
+        </div>
+        <div class="preference-item-setting">
+        	<div class="preference-item-setting-col">
+                <select id="preference-indent-size-btn">
+	           	<option value="2">2</option>
+	           	<option value="3">3</option>
+	           	<option value="4">4</option>
+	           	<option value="5">5</option>
+	           </select>
+            </div>
+           	<div class="preference-item-setting-col">
+                <pre id="preference-indent-size-pre">&gt; Quote
+- List item
+  1. sub-bullet</pre>
+            </div>
+        </div>
+    </div>
+    <div class="preference-item">
+        <div class="preference-item-key">
+            Spell Check<br>
+            <span class="preference-item-hint">(support English only)</span>
+        </div>
+        <div class="preference-item-setting">
+            <div class="checkbox">
+                <label><input type="checkbox" name="enable_spell_check" readonly=""><span>Enable spell check</span></label>
+            </div>
+            <div class="checkbox" style="display: none;">
+                <label><input type="checkbox" name="auto_correct_misspell" readonly=""><span>Auto correct spelling</span></label>
+            </div>
+        </div>
+    </div>
+    <div class="preference-item">
+        <div class="preference-item-key">
+            Typewriter Mode
+        </div>
+        <div class="preference-item-setting">
+            <div class="checkbox">
+                <label><input type="checkbox" name="scroll_with_cursor" readonly=""><span>Always keep caret in middle of screen when typewriter mode is enabled.</span></label>
+            </div>
+        </div>
+    </div>
+
+    <h1>System</h1>
+    <div class="preference-item">
+        <div class="preference-item-key">
+            Privacy
+        </div>
+        <div class="preference-item-setting">
+            <div class="checkbox">
+                <label><input type="checkbox" id="preference-send-anony-info-btn" readonly=""><span>Send anonymous usage info</span></label>
+            </div>
+        </div>
+    </div>
+    <div class="preference-item">
+        <div class="preference-item-key">
+            Developer
+        </div>
+        <div class="preference-item-setting">
+            <div class="checkbox">
+                <label><input type="checkbox" id="preference-trigger-debug-btn" readonly=""><span>Enable debug</span></label>
+            </div>
+        </div>
+    </div>
+    <div class="preference-item" id="preference-update-setting-item">
+        <div class="preference-item-key">
+            Update
+        </div>
+        <div class="preference-item-setting">
+        	<button class="btn" type="button" id="preference-trigger-check-update"><i class="fa fa-refresh"></i> Check Updates</button>
+            <div class="checkbox">
+                <label style="display: none;"><input type="checkbox" id="preference-enable-auto-update" readonly=""><span>Check updates automatically</span></label>
+            </div>
+        </div>
+    </div>
+    <div class="preference-item">
+        <div class="preference-item-key">
+            Advanced Settings
+            <span class="preference-item-hint">(applied after restart)</span>
+        </div>
+        <div class="preference-item-setting">
+            <div class="preference-item-setting-col" style="display:block">
+                <button class="btn" type="button" id="open-conf-folder-btn">Open Advanced Settings</button>
+            </div>
+            <div class="preference-item-setting-col">
+                <button class="btn" type="button" id="reset-conf-folder-btn">Reset Advanced Settings</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+		<div class="megamenu-section hide" id="megamenu-section-about"><div class="megamenu-menu-panel" id="about-content">
+    <div class="megamenu-menu-content-section" id="about-content-about-section">
+        <h1>About</h1>
+        <div class="about-content-main">
+            <div class="about-content-icon">
+                <img src="asserts/icon/icon_128x128.png">
+            </div>
+            <div class="about-content-description">
+                <h2>Typora<span class="about-content-hint"> for Windows / Linux</span></h2>
+                <div class="about-content-slogon">MADE WITH ❤ BY <span style="color:#4183C4">ABNER</span></div>
+            </div>
+            <div class="about-content-meta">
+                <span id="about-page-version-label">version 0.9.18(beta)</span> ✩ <span><a href="http://typora.io">website</a></span> ✩ <span><a href="https://twitter.com/typora">@typora</a></span>
+            </div>
+        </div>
+    </div>
+    <div class="megamenu-menu-content-section">
+        <h1>Help</h1>
+        <table class="table table-striped table-hover" id="typora-help-md-table">
+            <tbody class="list-js-list">
+                <tr style="cursor: pointer;">
+                    <td>Quick Start</td>
+                </tr>
+                <tr style="cursor: pointer;">
+                    <td>Markdown Reference</td>
+                </tr>
+                <tr style="cursor: pointer;">
+                    <td>Install and Use Pandoc</td>
+                </tr>
+                <tr style="cursor: pointer;">
+                    <td>Support Documentation</td>
+                </tr>
+                <tr style="cursor: pointer;">
+                    <td>Change Log</td>
+                </tr>
+                <tr style="cursor: pointer;">
+                    <td>Credits</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!--div class="megamenu-menu-content-section" id="about-content-feedback-section">
+        <h1>Quick Feedback</h1>
+        <div class="about-content-main">
+            <textarea placeholder="Have something to say?" class="form-control" id="doorbell-feedback" rows="6"></textarea><br/>
+            <input type="email" id="doorbell-email" class="form-control" placeholder="Your email address" value="" style="display: block;">
+        </div>
+    </div-->
+    <div class="megamenu-menu-content-section">
+        <h1>Contact</h1>
+        <table class="table table-striped table-hover">
+            <tbody class="list-js-list">
+                <tr>
+                    <td>Home Page</td>
+                    <td><a href="https://typora.io">https://typora.io</a></td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td><a href="mailto:hi@typora.io">hi@typora.io</a></td>
+                </tr>
+                <tr>
+                    <td>Twitter</td>
+                    <td><a href="https://twitter.com/typora">@typora</a></td>
+                </tr>
+                <tr>
+                    <td>Public Issues</td>
+                    <td><a href="https://github.com/typora/typora-issues/issues">https://github.com/typora/typora-issues/issues</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+		<div class="megamenu-section hide" id="megamenu-section-theme">
+			<div class="megamenu-menu-panel">
+				<h1>Themes</h1>
+				<div id="theme-preview-grid">
+					<div class="theme-preview-div">
+						<!-- build:remove -->
+						<iframe class="theme-preview-content" src="html/preview.html?folder=/Users/abner/Library/Application%20Support/Typora/themes&amp;&amp;css=night.css">
+						</iframe>
+						<!-- /build -->
+						<i class="fa fa-check-circle"></i>
+					</div>
+				</div>
+			</div>
+			<div class="megamenu-menu-panel" style="margin-top:0;">
+				<div class="long-btn" id="open-theme-folder-btn">
+					<span>Open Theme Folder</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

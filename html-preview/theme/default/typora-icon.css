@@ -1,0 +1,112 @@
+@font-face {
+	font-family: 'typora-icon';
+	src:url('fonts/typora-icon.eot?ca4b1n');
+	src:url('fonts/typora-icon.eot?#iefixca4b1n') format('embedded-opentype'),
+		url('fonts/typora-icon.ttf?ca4b1n') format('truetype'),
+		url('fonts/typora-icon.woff?ca4b1n') format('woff'),
+		url('fonts/typora-icon.svg?ca4b1n#typora-icon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="ty-"], [class*=" ty-"] {
+	font-family: 'typora-icon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.ty-cases:before {
+	content: "\e60d";
+}
+.ty-dropdown:before {
+	content: "\e60f";
+}
+.ty-folder:before {
+	content: "\e616";
+}
+.ty-close10:before {
+	content: "\e61b";
+}
+.ty-maximize10:before {
+	content: "\e61c";
+}
+.ty-minimize10:before {
+	content: "\e61d";
+}
+.ty-arrow-left-circle:before {
+	content: "\e619";
+}
+.ty-clock:before {
+	content: "\e610";
+}
+.ty-folder-outline:before {
+	content: "\e617";
+}
+.ty-markdown:before {
+	content: "\e618";
+}
+.ty-book-open:before {
+	content: "\e615";
+}
+.ty-map-marker:before {
+	content: "\e611";
+}
+.ty-layers:before {
+	content: "\e612";
+}
+.ty-dots-horizontal:before {
+	content: "\e613";
+}
+.ty-download:before {
+	content: "\e614";
+}
+.ty-window-restore:before {
+	content: "\e608";
+}
+.ty-instapaper:before {
+	content: "\e609";
+}
+.ty-eye:before {
+	content: "\e60a";
+}
+.ty-details:before {
+	content: "\e60b";
+}
+.ty-clipboard-outline:before {
+	content: "\e60c";
+}
+.ty-lightbulb:before {
+	content: "\e60e";
+}
+.ty-settings:before {
+	content: "\e605";
+}
+.ty-lightbulb-outline:before {
+	content: "\e606";
+}
+.ty-information-outline:before {
+	content: "\e607";
+}
+.ty-typora-icon-dark:before {
+	content: "\e600";
+}
+.ty-typora-icon:before {
+	content: "\e601";
+}
+.ty-appbarapp:before {
+	content: "\e602";
+}
+.ty-appbarclose:before {
+	content: "\e603";
+}
+.ty-appbarminus:before {
+	content: "\e604";
+}
