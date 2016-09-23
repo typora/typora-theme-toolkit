@@ -9,7 +9,7 @@ Copy and rename your `.css` theme file as `html-preview/test.css` and copy relat
 ## HTML files
 
 - `lorem.html`  Preview the basic typesetting.
-- `outline-open.html` Preview pinned outline panel on Typora for macOS.
+- `outline-open-and-focus-mode.html` Preview pinned outline panel on Typora for macOS, and focus mode.
 - `source-mode.html` Preview source code mode syntax highlighting style.
 - `ui-controls.html` Preview some control UIs on macOS, Windows, and Linux and window frame for "unibody"  style on Windows.
 - `ui-controls2.html` Preview tips/notifications in Typora and the side panel style on Windows/Linux.

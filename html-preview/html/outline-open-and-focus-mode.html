@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Typora</title>
+    <link rel="stylesheet" href="../theme/default/font-awesome.min.css">
+    <link rel="stylesheet" href="../theme/default/bootstrap.css">
+    <link rel="stylesheet" href="../theme/default/codemirror.css">
+    <link rel="stylesheet" href="../theme/default/base.css">
+    <link rel="stylesheet" href="../theme/default/base-control.css">
+    <link rel="stylesheet" href="../theme/test.css">
+</head>
+
+<body class="pin-outline on-focus-mode">
+    <div class="dropdown-menu stopselect open" id="outline-dropmenu" role="menu">
+        <div class="outline-title-wrapper">
+            <span class="outline-title">Outline</span>
+            <span class="btn glyphicon glyphicon-remove-circle" id="close-outline-btn"></span>
+            <span class="btn fa fa-arrow-circle-left" id="pin-outline-btn"></span>
+            <span class="btn fa fa-share-square-o" id="unpin-outline-btn"></span>
+        </div>
+        <div class="divider outline-title-divider"></div>
+        <div class="info-panel-tab-wrapper">
+            <div style="flex:1;"></div>
+            <div class="info-panel-tab" id="info-panel-tab-file">
+                <div class="info-panel-tab-title">File</div>
+                <div class="info-panel-tab-border"></div>
+            </div>
+            <div style="flex:1;"></div>
+            <div class="info-panel-tab active" id="info-panel-tab-outline">
+                <div class="info-panel-tab-title">Outline</div>
+                <div class="info-panel-tab-border"></div>
+            </div>
+            <div style="flex:1;"></div>
+        </div>
+        <div class="sidebar-content">
+            <div id="outline-content">
+                <li class="outline-item-wrapper outline-h2 outline-item-signle">
+                    <div class="outline-item"><span class="outline-expander"></span><span class="outline-label" data-ref="c6">Summary</span></div>
+                    <ul class="outline-children"></ul>
+                </li>
+                <li class="outline-item-wrapper outline-h2 outline-item-signle">
+                    <div class="outline-item"><span class="outline-expander"></span><span class="outline-label" data-ref="c35">Basic Rules</span></div>
+                    <ul class="outline-children"></ul>
+                </li>
+                <li class="outline-item-wrapper outline-h2 outline-item-signle">
+                    <div class="outline-item"><span class="outline-expander"></span><span class="outline-label" data-ref="c54">Changes and Updates</span></div>
+                    <ul class="outline-children"></ul>
+                </li>
+                <li class="outline-item-wrapper outline-h2">
+                    <div class="outline-item"><span class="outline-expander"></span><span class="outline-label" data-ref="c57">Which CSS selector should I use?</span></div>
+                    <ul class="outline-children">
+                        <li class="outline-item-wrapper outline-h3 outline-item-signle">
+                            <div class="outline-item"><span class="outline-expander"></span><span class="outline-label" data-ref="c58">General</span></div>
+                            <ul class="outline-children"></ul>
+                        </li>
+                        <li class="outline-item-wrapper outline-h3">
+                            <div class="outline-item"><span class="outline-expander"></span><span class="outline-label outline-active" data-ref="c68">Focus Mode</span></div>
+                            <ul class="outline-children">
+                                <li class="outline-item-wrapper outline-h4 outline-item-signle">
+                                    <div class="outline-item"><span class="outline-expander"></span><span class="outline-label" data-ref="c148">Lines</span></div>
+                                    <ul class="outline-children"></ul>
+                                </li>
+                                <li class="outline-item-wrapper outline-h4 outline-item-signle">
+                                    <div class="outline-item"><span class="outline-expander"></span><span class="outline-label" data-ref="c151">Code Fences</span></div>
+                                    <ul class="outline-children"></ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="outline-item-wrapper outline-h3 outline-item-signle">
+                            <div class="outline-item"><span class="outline-expander"></span><span class="outline-label" data-ref="c154">Inline Elements</span></div>
+                            <ul class="outline-children"></ul>
+                        </li>
+                        <li class="outline-item-wrapper outline-h3 outline-item-signle">
+                            <div class="outline-item"><span class="outline-expander"></span><span class="outline-label" data-ref="c256">Source Code Mode</span></div>
+                            <ul class="outline-children"></ul>
+                        </li>
+                        <li class="outline-item-wrapper outline-h3">
+                            <div class="outline-item"><span class="outline-expander"></span><span class="outline-label" data-ref="c260">Focus Mode</span></div>
+                            <ul class="outline-children">
+                                <li class="outline-item-wrapper outline-h4 outline-item-signle">
+                                    <div class="outline-item"><span class="outline-expander"></span><span class="outline-label" data-ref="c263">Custom Font</span></div>
+                                    <ul class="outline-children"></ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="outline-item-wrapper outline-h3 outline-item-signle">
+                            <div class="outline-item"><span class="outline-expander"></span><span class="outline-label" data-ref="c266">Background</span></div>
+                            <ul class="outline-children"></ul>
+                        </li>
+                        <li class="outline-item-wrapper outline-h3 outline-item-signle">
+                            <div class="outline-item"><span class="outline-expander"></span><span class="outline-label" data-ref="c269">Controller UI</span></div>
+                            <ul class="outline-children"></ul>
+                        </li>
+                        <li class="outline-item-wrapper outline-h3 outline-item-signle">
+                            <div class="outline-item"><span class="outline-expander"></span><span class="outline-label" data-ref="c272">Window for Windows/Linux</span></div>
+                            <ul class="outline-children"></ul>
+                        </li>
+                        <li class="outline-item-wrapper outline-h3 outline-item-signle">
+                            <div class="outline-item"><span class="outline-expander"></span><span class="outline-label" data-ref="c277">Print</span></div>
+                            <ul class="outline-children"></ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="outline-item-wrapper outline-h2">
+                    <div class="outline-item"><span class="outline-expander"></span><span class="outline-label" data-ref="c281">Debug and Test</span></div>
+                    <ul class="outline-children">
+                        <li class="outline-item-wrapper outline-h3 outline-item-signle">
+                            <div class="outline-item"><span class="outline-expander"></span><span class="outline-label" data-ref="c282">Test in Browser</span></div>
+                            <ul class="outline-children"></ul>
+                        </li>
+                        <li class="outline-item-wrapper outline-h3 outline-item-signle">
+                            <div class="outline-item"><span class="outline-expander"></span><span class="outline-label" data-ref="c285">Test in Typora</span></div>
+                            <ul class="outline-children"></ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="outline-item-wrapper outline-h2 outline-item-signle">
+                    <div class="outline-item"><span class="outline-expander"></span><span class="outline-label" data-ref="c292">Tips and References on custom style</span></div>
+                    <ul class="outline-children"></ul>
+                </li>
+            </div>
+        </div>
+    </div>
+
+    <content>
+    <div id="write" contenteditable="true" spellcheck="true" class="enable-diagrams"><h3 cid="c1" mdtype="heading" class="md-end-block md-heading"><span md-inline="plain">Focus Mode</span></h3><p cid="c19" mdtype="paragraph"><span class="md-line md-end-block" cid="c20" mdtype="line"><span md-inline="plain">As I write, Typora try to render all elements as other output, for example </span><span md-inline="code" spellcheck="false"><span class="md-meta md-before">`` </span><code>for paragraph,</code><span class="md-meta md-after"> ``</span></span><span md-inline="plain"> for tables, `` for 1st level headings, so you could write styles for most styles like:</span></span></p><pre class="md-fences md-end-block" lang="css" contenteditable="false" cid="c21" mdtype="fences"><textarea id="for-fence-c21" style="display: none;"></textarea><div class="code-tooltip md-tooltip-hide" align="right" style="display: none;"><input class="mode" type="text" value="" placeholder="select a language"></div> <div class="CodeMirror cm-s-inner CodeMirror-wrap  " lang="css"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-hscrollbar" style="left: 0px; min-height: 18px;"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-vscrollbar" style="min-width: 18px;"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-scrollbar-filler"></div><div class="CodeMirror-gutter-filler"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; min-height: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors" style="visibility: hidden;"><div class="CodeMirror-cursor" style="left: 4px; top: 0px; height: 22px;">&nbsp;</div></div><div class="CodeMirror-code" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-tag">p</span> {...}</span></pre></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-tag">h1</span> {...}</span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-tag">table</span> {...}</span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-tag">table</span> <span class="cm-tag">th</span> <span class="cm-tag">td</span> {...}</span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-tag">table</span> <span class="cm-tag">tr</span>:<span class="cm-variable-3">nth-child</span>(<span class="cm-number">2n</span>) <span class="cm-tag">td</span> {...}</span></pre><div class="" style="position: relative;"><pre class=""><span style="padding-right: 0.1px;">...</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px; top: 0px;"></div><div class="CodeMirror-gutters" style="display: none; height: 132px;"></div></div></div></pre><p cid="c22" mdtype="paragraph"><span class="md-line md-end-block md-focus" cid="c23" mdtype="line"><span md-inline="plain">(</span><span md-inline="strong" class=""><span class="md-meta md-before">**</span><strong><span md-inline="plain">This line is ACTIVE under focus mode</span></strong><span class="md-meta md-after">**</span></span><span md-inline="plain" class="">) You could add </span><span md-inline="code" spellcheck="false"><span class="md-meta md-before">`</span><code>#write</code><span class="md-meta md-after">`</span></span><span md-inline="plain" class="md-expand"> as ancestor selector.</span></span></p><pre class="md-fences md-end-block" lang="css" contenteditable="false" cid="c24" mdtype="fences"><textarea id="for-fence-c24" style="display: none;"></textarea><div class="code-tooltip md-tooltip-hide" align="right" style="display: none;"><input class="mode" type="text" value="" placeholder="select a language"></div> <div class="CodeMirror cm-s-inner CodeMirror-wrap   " lang="css"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-hscrollbar" style="left: 0px; min-height: 18px;"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-vscrollbar" style="min-width: 18px;"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-scrollbar-filler"></div><div class="CodeMirror-gutter-filler"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; min-height: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors" style="visibility: hidden;"><div class="CodeMirror-cursor" style="left: 4px; top: 0px; height: 21.5625px;">&nbsp;</div></div><div class="CodeMirror-code" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-comment">/*this will only aplly to h4 in dialogs popped up by typora (just an example)*/</span></span></pre></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-qualifier">.dialog</span> <span class="cm-tag">h4</span> {...} </span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-invalidchar" title="\u200b">•</span></span></pre><pre class=""><span style="padding-right: 0.1px;"><span class="cm-comment">/*this will only apply to h4 inside writing area, which is generated after user input "#### " */</span></span></pre><div class="" style="position: relative;"><pre class=""><span style="padding-right: 0.1px;"><span class="cm-builtin">#write</span> <span class="cm-tag">h4</span> {...} </span></pre></div></div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px; top: 0px;"></div><div class="CodeMirror-gutters" style="display: none; height: 154px;"></div></div></div></pre><p cid="c25" mdtype="paragraph"><span class="md-line md-end-block" cid="c26" mdtype="line"><span md-inline="plain">Aslo, all block elements has a </span><span md-inline="code" spellcheck="false"><span class="md-meta md-before">`</span><code>mdtype</code><span class="md-meta md-after">`</span></span><span md-inline="plain"> attribute. For example, you could also select headings by selector </span><span md-inline="code" spellcheck="false"><span class="md-meta md-before">`</span><code>[mdtype="heading"]</code><span class="md-meta md-after">`</span></span><span md-inline="plain">. Possible type includes </span><span md-inline="code" spellcheck="false"><span class="md-meta md-before">`</span><code>paragraph</code><span class="md-meta md-after">`</span></span><span md-inline="plain">, </span><span md-inline="code" spellcheck="false"><span class="md-meta md-before">`</span><code>heading</code><span class="md-meta md-after">`</span></span><span md-inline="plain">, </span><span md-inline="code" spellcheck="false"><span class="md-meta md-before">`</span><code>blockquote</code><span class="md-meta md-after">`</span></span><span md-inline="plain">, </span><span md-inline="code" spellcheck="false" class=""><span class="md-meta md-before">`</span><code>fences</code><span class="md-meta md-after">`</span></span><span md-inline="plain">, </span><span md-inline="code" spellcheck="false"><span class="md-meta md-before">`</span><code>hr</code><span class="md-meta md-after">`</span></span><span md-inline="plain">, </span><span md-inline="code" spellcheck="false"><span class="md-meta md-before">`</span><code>def_link</code><span class="md-meta md-after">`</span></span><span md-inline="plain">, </span><span md-inline="code" spellcheck="false"><span class="md-meta md-before">`</span><code>def_footnote</code><span class="md-meta md-after">`</span></span><span md-inline="plain">, </span><span md-inline="code" spellcheck="false"><span class="md-meta md-before">`</span><code>table</code><span class="md-meta md-after">`</span></span><span md-inline="plain">, </span><span md-inline="code" spellcheck="false"><span class="md-meta md-before">`</span><code>meta_block</code><span class="md-meta md-after">`</span></span><span md-inline="plain">, </span><span md-inline="code" spellcheck="false"><span class="md-meta md-before">`</span><code>math_block</code><span class="md-meta md-after">`</span></span><span md-inline="plain">, </span><span md-inline="code" spellcheck="false"><span class="md-meta md-before">`</span><code>list</code><span class="md-meta md-after">`</span></span><span md-inline="plain">, </span><span md-inline="code" spellcheck="false"><span class="md-meta md-before">`</span><code>toc</code><span class="md-meta md-after">`</span></span><span md-inline="plain">, </span><span md-inline="code" spellcheck="false"><span class="md-meta md-before">`</span><code>list_item</code><span class="md-meta md-after">`</span></span><span md-inline="plain">, </span><span md-inline="code" spellcheck="false"><span class="md-meta md-before">`</span><code>table-row</code><span class="md-meta md-after">`</span></span><span md-inline="plain">, </span><span md-inline="code" spellcheck="false"><span class="md-meta md-before">`</span><code>table-cell</code><span class="md-meta md-after">`</span></span><span md-inline="plain">, </span><span md-inline="code" spellcheck="false"><span class="md-meta md-before">`</span><code>line</code><span class="md-meta md-after">`</span></span><span md-inline="plain" class="">. But in most times, tag selector is enough.</span></span></p></div>
+</content>
+
+</body>
+
+</html>
