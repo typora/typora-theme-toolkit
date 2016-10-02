@@ -26,7 +26,7 @@ So you may find components you never seen in Typora because they may only be ava
 
 ## Documentations
 
-[How to write a Typora theme](http://theme.typora,io/doc/Write-Custom-Theme/)
+[How to write a Typora theme](http://theme.typora.io/doc/Write-Custom-Theme/)
 
 [Typora Theme Gallery](http://theme.typora.io)
 
