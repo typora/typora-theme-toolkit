@@ -15,7 +15,7 @@ Copy and rename your `.css` theme file as `html-preview/test.css` and copy relat
 - `ui-controls2.html` Preview tips/notifications in Typora and the side panel style on Windows/Linux.
 - `unibody.html` Preview the menu style for "unibody"  style on Windows.
 
-So you may find components you never seen in Typora because they may only be available for specific OS platform. If you want to submit your Typora theme to [Typora Theme Gallery][http://theme.typora.io], and share with other users, we strongly recommend you to go through all those HTML files to make your theme looks great n all platform.
+So you may find components you never seen in Typora because they may only be available for specific OS platform. If you want to submit your Typora theme to [Typora Theme Gallery](http://theme.typora.io), and share with other users, we strongly recommend you to go through all those HTML files to make your theme looks great n all platform.
 
 ## Notice
 
