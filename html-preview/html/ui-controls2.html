@@ -19,42 +19,473 @@
 	<link rel="stylesheet" href="../theme/test.css">
 </head>
 
-<body class="typora-node unibody-window mouse-entered show-footer pin-outline"><div id="MathJax_Message" style="display: none;"></div>
+<body class="typora-node unibody-window mouse-entered show-footer pin-outline allow-file-tree-scroll"><div id="MathJax_Message" style="display: none;"></div>
 	<header>
 
-	<div class="dropdown-menu stopselect open" id="outline-dropmenu" role="menu">
-	    <div class="outline-title-wrapper">
-	        <span class="outline-title">Outline</span>
-	        <span class="btn glyphicon glyphicon-remove-circle" id="close-outline-btn"></span>
-	        <span class="btn fa fa-arrow-circle-left" id="pin-outline-btn"></span>
-	        <span class="btn fa fa-share-square-o" id="unpin-outline-btn"></span>
-	    </div>
-	    <div class="divider outline-title-divider"></div>
-	    <div class="info-panel-tab-wrapper">
+	
+	<div class="stopselect dropmenu sidebar-menu open active-tab-files use-file-list-style" id="typora-sidebar" role="menu">
+	    <div class="info-panel-tab-wrapper ty-tab-wrapper">
 	        <div style="flex:1;"></div>
 	        <div class="info-panel-tab" id="info-panel-tab-file">
-	            <div class="info-panel-tab-title">File</div>
+	            <div class="info-panel-tab-title" data-localize="Files" data-lg="Front">Files</div>
 	            <div class="info-panel-tab-border"></div>
 	        </div>
 	        <div style="flex:1;"></div>
 	        <div class="info-panel-tab active" id="info-panel-tab-outline">
-	            <div class="info-panel-tab-title">Outline</div>
+	            <div class="info-panel-tab-title" data-localize="Outline" data-lg="Front">Outline</div>
 	            <div class="info-panel-tab-border"></div>
 	        </div>
 	        <div style="flex:1;"></div>
 	    </div>
-	    <div class="sidebar-content">
-	        <div id="outline-content">
-	        	<li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><span class="outline-label outline-active" data-ref="c24">Chapter 1 (active)</span></div><ul class="outline-children"></ul></li>
-	        	<li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><span class="outline-label" data-ref="c24">Chapter 2</span></div><ul class="outline-children"></ul></li>
+	    <div class="sidebar-osx-tab ty-tab-wrapper">
+	        <div class="sidebar-tabs">
+	            <div class="sidebar-tab-btn" id="switch-sidebar-icon" ty-hint="Switch to Outline view"><span class="ty-icon ty-list"></span></div>
+	            <div class="sidebar-tab" id="sidepanel-segmented-input-files" data-localize="Articles">Articles</div>
+	            <div class="sidebar-tab" id="sidepanel-segmented-input-outline" data-localize="Outline" data-lg="Front">Outline</div>
+	            <div class="sidebar-tab-btn" id="hide-sidebar-btn" ty-hint="Close sidebar"><span class="ty-icon ty-chevron-left"></span></div>
+	          </div>
+	    </div>
+	    <div class="sidebar-content" id="sidebar-content">
+	        <div id="outline-content" class="outline-content sidebar-content-content" data-after-content="Outline is Empty."></div>
+	        <div id="file-library" class="sidebar-content-content">
+	            <div id="file-library-tree" class="no-selection" data-state="rendering" data-after-content="No Folder is Opened."></div>
+	            <div id="file-library-list" class="no-selection" data-state="complete">
+	                <div id="sidebar-loading-template" class="file-list-item">
+	                    <div class="sidebar-loading">
+	                        <div class="typora-quick-open-info"><span data-localize="Loading" data-lg="Front">Loading</span></div>
+	                        <div class="typora-search-spinner"><div class="rect1"></div><div class="rect2"></div><div class="rect3"></div><div class="rect4"></div><div class="rect5"></div></div>
+	                    </div>
+	                    <div class="oversize-list-template">
+	                        <div class="oversize-list-template-mark">
+	                            <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> 
+	                        </div>
+	                        <div data-localize="Selected folders contains too many files. \nPlease switch to <a id='switch-to-tree-on-oversize'>File Tree view</a> for better performance." data-lg="Front" data-lt="html">Selected folders contains too many files. 
+	Please switch to <a id="switch-to-tree-on-oversize">File Tree view</a> for better performance.</div>
+	                    </div>
+	                </div>
+	                <div id="file-library-list-children" data-after-content="No Files Available" class="show-folder-name"><div class="file-list-item file-library-node file-library-file-node" data-path="/Users/abner/workplace/HybirdApp/TypeMark/LICENSE" data-parent-path="/Users/abner/workplace/HybirdApp/TypeMark" tabindex="-1">
+	                    <div class="file-list-item-parent-loc">TypeMark</div>
+	                    <div class="file-list-item-time">2016-11-19</div>
+	                    <div class="file-list-item-file-name">
+	                        <span class="file-list-item-file-name-part">LICENSE</span><span class="file-list-item-file-ext-part"></span>
+	                    </div>
+	                    <div class="file-list-item-summary">Copyright (c) 2015 Abner Lee<br>All Rights Reserved.<br>Typora is powered by Electron (MIT License, Github Inc) and several open source project<br>See Help -&gt; Credits for full license text<br></div>
+	                </div><div class="file-list-item file-library-node file-library-file-node" data-path="/Users/abner/workplace/HybirdApp/TypeMark/Docs/Auto Save, Version Control and Recovery.md" data-parent-path="/Users/abner/workplace/HybirdApp/TypeMark/Docs" tabindex="-1">
+	                    <div class="file-list-item-parent-loc">Docs</div>
+	                    <div class="file-list-item-time">Aug 13</div>
+	                    <div class="file-list-item-file-name">
+	                        <span class="file-list-item-file-name-part">Auto Save, Version Control and Recovery</span><span class="file-list-item-file-ext-part">.md</span>
+	                    </div>
+	                    <div class="file-list-item-summary"> Auto Save, Version Control and Recovery<br> macOS<br>On macOS, the operation system will schedule auto save operation for document-based apps, like Typora or TextEdit. So "auto-save" is always enabled as a system feature.<br>!general<br>If you want Typora to auto save content when quit or close, without popping up a confirm dialog, please uncheck the checkbox one.<br>If you want Typora to restore all windows/documents when restart, please uncheck the checkbox two.<br> Windows/Linux<br> !Snip20161027 2<br>You could enable this feature on preferences pa</div>
+	                </div><div class="file-list-item file-library-node file-library-file-node" data-path="/Users/abner/workplace/HybirdApp/TypeMark/Docs/Change Log.md" data-parent-path="/Users/abner/workplace/HybirdApp/TypeMark/Docs" tabindex="-1">
+	                    <div class="file-list-item-parent-loc">Docs</div>
+	                    <div class="file-list-item-time">Dec 14</div>
+	                    <div class="file-list-item-file-name">
+	                        <span class="file-list-item-file-name-part">Change Log</span><span class="file-list-item-file-ext-part">.md</span>
+	                    </div>
+	                    <div class="file-list-item-summary"> 0.9.9.11.2 (beta)<br>13, Dec, 2017<br>1. Add Chinese user interface.<br>2. Tables with long content supports scroll horizontally.<br>3. Support choose line endings on macOS.<br>4. Improve PDF export, fix bugs relates to PDF export.<br>5. Add strict mode option for parsing markdown.<br>6. Fix bug that cannot open correct link address for hyperlink syntax.<br>7. Some fix bug about markdown parse logic.<br>8. Fix bugs about [TOC] .<br>9. Other bug fix.<br> 0.9.9.10.9 (beta)<br>29, Oct, 2017<br>1. Support &lt;br/&gt; tag in live rendering.<br>2. Update emoji library to cover emojis introduce</div>
+	                </div><div class="file-list-item file-library-node file-library-file-node" data-path="/Users/abner/workplace/HybirdApp/TypeMark/Docs/Code Fences Language Support.md" data-parent-path="/Users/abner/workplace/HybirdApp/TypeMark/Docs" tabindex="-1">
+	                    <div class="file-list-item-parent-loc">Docs</div>
+	                    <div class="file-list-item-time">Nov 12</div>
+	                    <div class="file-list-item-file-name">
+	                        <span class="file-list-item-file-name-part">Code Fences Language Support</span><span class="file-list-item-file-ext-part">.md</span>
+	                    </div>
+	                    <div class="file-list-item-summary"> Code Fences Language Support<br>The latest version of Typora support syntax highlight of following languages (in lower case):<br>- asp (alias: aspx, asp.net)<br>- javascript (alias: js, text/javascript)<br>- json<br>- typescript<br>- clojure<br>- coffeescript (alias: coffee)<br>- css<br>- less<br>- scss<br>- gfm (github flavored markdown)<br>- markdown<br>- xml<br>- haskell<br>- html (alias: htmlmixed)<br>- lua<br>- commonlisp (alias: lisp)<br>- pascal<br>- perl<br>- php (and php+html)<br>- cython<br>- python<br>- ruby<br>- shell (alias: sh, bash)<br>- sql<br>- mssql<br>- mysql<br>- mariadb<br>- cql (alias: cassandra)<br>- plsql<br>- tex (and stex, latex)<br>- tiddlywiki (alias: wiki)</div>
+	                </div><div class="file-list-item file-library-node file-library-file-node" data-path="/Users/abner/workplace/HybirdApp/TypeMark/Docs/Credits.md" data-parent-path="/Users/abner/workplace/HybirdApp/TypeMark/Docs" tabindex="-1">
+	                    <div class="file-list-item-parent-loc">Docs</div>
+	                    <div class="file-list-item-time">Sep 24</div>
+	                    <div class="file-list-item-file-name">
+	                        <span class="file-list-item-file-name-part">Credits</span><span class="file-list-item-file-ext-part">.md</span>
+	                    </div>
+	                    <div class="file-list-item-summary"> Credits Typora is developed by @LeeAbner. All rights reserved.<br>Following codes / libraries make it happen, thanks for their work.<br> MathJax<br>Copyright \[yyyy\][\name of copyright owner\]<br>Licensed under the Apache License, Version 2.0 (the "License");<br>you may not use this file except in compliance with the License.<br>You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" B</div>
+	                </div><div class="file-list-item file-library-node file-library-file-node" data-path="/Users/abner/workplace/HybirdApp/TypeMark/Docs/Custom Font.md" data-parent-path="/Users/abner/workplace/HybirdApp/TypeMark/Docs" tabindex="-1">
+	                    <div class="file-list-item-parent-loc">Docs</div>
+	                    <div class="file-list-item-time">Aug 13</div>
+	                    <div class="file-list-item-file-name">
+	                        <span class="file-list-item-file-name-part">Custom Font</span><span class="file-list-item-file-ext-part">.md</span>
+	                    </div>
+	                    <div class="file-list-item-summary"> Custom Font<br> about where to put those CSS, please follow Add Custom CSS.<br>Custom font in Typora are set by CSS.<br>For example, append following in base.user.css under theme folder<br>css<br>body {<br>  font-family: Courier;<br>}<br>Would override the font setting in current theme, and apply the system font Courier , and make the editing area looks like this:<br>!1<br>You could also use web font, for example:<br>css<br>@import url(https://fonts.googleapis.com/css?family Oxygen);<br>body {<br> font-family: 'Oxygen', sans-serif;<br>}<br>But to ma</div>
+	                </div><div class="file-list-item file-library-node file-library-file-node" data-path="/Users/abner/workplace/HybirdApp/TypeMark/Docs/Custom Shortcut Keys.md" data-parent-path="/Users/abner/workplace/HybirdApp/TypeMark/Docs" tabindex="-1">
+	                    <div class="file-list-item-parent-loc">Docs</div>
+	                    <div class="file-list-item-time">Nov 18</div>
+	                    <div class="file-list-item-file-name">
+	                        <span class="file-list-item-file-name-part">Custom Shortcut Keys</span><span class="file-list-item-file-ext-part">.md</span>
+	                    </div>
+	                    <div class="file-list-item-summary"> Custom Shortcut Keys<br>User can set or reassign shortcut keys for commands in Typora's menubar. This article will show how to customise typora' key binding.<br> macOS<br>We use macOS's system feature to customise typora's key binding on macOS.<br>1. Open System Preference → Keyboard , select tab Shortcuts . Select App Shortcuts in its left panel.<br>!Snip20160814 1<br>2. Click the "+" button, a dialog sheet would popup. Select "Typora.app" from field Application , then input the exact name of the menu command you want to add, and then input the shortcut key you wan</div>
+	                </div><div class="file-list-item file-library-node file-library-file-node" data-path="/Users/abner/workplace/HybirdApp/TypeMark/Docs/Custom Themes.md" data-parent-path="/Users/abner/workplace/HybirdApp/TypeMark/Docs" tabindex="-1">
+	                    <div class="file-list-item-parent-loc">Docs</div>
+	                    <div class="file-list-item-time">Feb 05</div>
+	                    <div class="file-list-item-file-name">
+	                        <span class="file-list-item-file-name-part">Custom Themes</span><span class="file-list-item-file-ext-part">.md</span>
+	                    </div>
+	                    <div class="file-list-item-summary"> Change Themes<br>Typora has 5~6 built-in themes. Changing writing theme can be done by selecting theme under the theme menu bar. You could also download, install, modify or write your own custom theme to stylize Typora.<br>Typora use CSS to stylish all contents, each theme under theme menu is one .css files under "typora's theme folder". So, briefly speaking, you could add/modify themes by adding/modifying correspond css files under "typora's theme folder".<br> Get Typora Themes<br>We have an office website Typora Theme Gallery for designers/developers to share thei</div>
+	                </div><div class="file-list-item file-library-node file-library-file-node" data-path="/Users/abner/workplace/HybirdApp/TypeMark/Docs/Draw Diagrams With Markdown.md" data-parent-path="/Users/abner/workplace/HybirdApp/TypeMark/Docs" tabindex="-1">
+	                    <div class="file-list-item-parent-loc">Docs</div>
+	                    <div class="file-list-item-time">Aug 13</div>
+	                    <div class="file-list-item-file-name">
+	                        <span class="file-list-item-file-name-part">Draw Diagrams With Markdown</span><span class="file-list-item-file-ext-part">.md</span>
+	                    </div>
+	                    <div class="file-list-item-summary"> Draw Diagrams With Markdown<br>Typora supports some Markdown extension for diagrams, you could enable this feature from preference panel.<br>When exporting as HTML, PDF, epub, docx, those rendered diagrams will also be included, but diagrams features are not supported when exporting markdown into other file formats in current version. Besides, you should also notice that diagrams is not supported by standard Markdown, CommonMark or GFM. Therefore, we still recommend you to insert an image of these diagrams instead of write them in Markdown directly.<br> Sequence<br>It is powered by [js-sequence](ht</div>
+	                </div><div class="file-list-item file-library-node file-library-file-node" data-path="/Users/abner/workplace/HybirdApp/TypeMark/Docs/Install and Use Pandoc.md" data-parent-path="/Users/abner/workplace/HybirdApp/TypeMark/Docs" tabindex="-1">
+	                    <div class="file-list-item-parent-loc">Docs</div>
+	                    <div class="file-list-item-time">Sep 03</div>
+	                    <div class="file-list-item-file-name">
+	                        <span class="file-list-item-file-name-part">Install and Use Pandoc</span><span class="file-list-item-file-ext-part">.md</span>
+	                    </div>
+	                    <div class="file-list-item-summary">TL;DR:<br>Typora requires Pandoc (≥ v1.16). If you do not have Pandoc or only old version of Pandoc installed on your machine, you could:<br>Download installer from Download Page and install or update Pandoc.<br>For windows users, if typora still saying it cannot found Pandoc, you may need try to restart your PC.<br> Pandoc Integration<br>In Typora, import function and export function for some file formats (including docx, odt, rtf, epub, LaTeX and wiki) are powered by a 3rd party software named Pandoc. Those features requires </div>
+	                </div><div class="file-list-item file-library-node file-library-file-node" data-path="/Users/abner/workplace/HybirdApp/TypeMark/Docs/Markdown Reference.md" data-parent-path="/Users/abner/workplace/HybirdApp/TypeMark/Docs" tabindex="-1">
+	                    <div class="file-list-item-parent-loc">Docs</div>
+	                    <div class="file-list-item-time">Jun 16</div>
+	                    <div class="file-list-item-file-name">
+	                        <span class="file-list-item-file-name-part">Markdown Reference</span><span class="file-list-item-file-ext-part">.md</span>
+	                    </div>
+	                    <div class="file-list-item-summary"> Markdown For Typora<br> Overview Markdown is created by Daring Fireball, the original guideline is here. Its syntax, however, varies between different parsers or editors. Typora is using [GitHub Flavored Markdown][GFM].<br>Please note that HTML fragments in markdown source will be recognized but not parsed or rendered. Also, there may be small reformatting on the original markdown source code after saving. Outline [TOC]<br> Block Elements<br> Paragraph and line breaks<br>A paragraph is simply one or</div>
+	                </div><div class="file-list-item file-library-node file-library-file-node" data-path="/Users/abner/workplace/HybirdApp/TypeMark/Docs/More Documents.md" data-parent-path="/Users/abner/workplace/HybirdApp/TypeMark/Docs" tabindex="-1">
+	                    <div class="file-list-item-parent-loc">Docs</div>
+	                    <div class="file-list-item-time">Nov 12</div>
+	                    <div class="file-list-item-file-name">
+	                        <span class="file-list-item-file-name-part">More Documents</span><span class="file-list-item-file-ext-part">.md</span>
+	                    </div>
+	                    <div class="file-list-item-summary"> More Documents...<br>See &lt;http://support.typora.io&gt;<br></div>
+	                </div><div class="file-list-item file-library-node file-library-file-node" data-path="/Users/abner/workplace/HybirdApp/TypeMark/Docs/Quick Start.md" data-parent-path="/Users/abner/workplace/HybirdApp/TypeMark/Docs" tabindex="-1">
+	                    <div class="file-list-item-parent-loc">Docs</div>
+	                    <div class="file-list-item-time">Nov 18</div>
+	                    <div class="file-list-item-file-name">
+	                        <span class="file-list-item-file-name-part">Quick Start</span><span class="file-list-item-file-ext-part">.md</span>
+	                    </div>
+	                    <div class="file-list-item-summary"> Welcome<br>Thank you for choosing Typora . This document will help you to start Typora.<br>[TOC]<br> Live Preview Typora use the feature: Live Preview , meaning that you could see these inline styles after you finish typing, and see block styles when you type or after you press Enter key or focus to another paragraph. Just try to type some markdown in typora, and you would see how it works. Note : Markdown tags for inline styles, such as will be hided or displayed smartly. Markdown tags for block level styles, such as ### or - [x] will be hided once the block is rendered.<br></div>
+	                </div><div class="file-list-item file-library-node file-library-file-node" data-path="/Users/abner/workplace/HybirdApp/TypeMark/Docs/Table Editing.md" data-parent-path="/Users/abner/workplace/HybirdApp/TypeMark/Docs" tabindex="-1">
+	                    <div class="file-list-item-parent-loc">Docs</div>
+	                    <div class="file-list-item-time">Aug 13</div>
+	                    <div class="file-list-item-file-name">
+	                        <span class="file-list-item-file-name-part">Table Editing</span><span class="file-list-item-file-ext-part">.md</span>
+	                    </div>
+	                    <div class="file-list-item-summary"> Edit Tables Outline<br>{:toc}<br> Tables in Markdown<br>Typora supports table syntax of Github Favored Markdown:<br>It will parse following text in a markdown file into a table. gfm<br> |First Header | Second Header|<br> |------------ | -------------|<br> |Content from cell 1 | Content from cell 2|<br> |Content in the first column | Content in the second column| Create Table in Typora<br>To create a table in Typora, you could simplify write down a table header in markdown.<br>markdown<br>|First Header | Second Header|<br>And then pres</div>
+	                </div><div class="file-list-item file-library-node file-library-file-node" data-path="/Users/abner/workplace/HybirdApp/TypeMark/Docs/Use Images in Typora.md" data-parent-path="/Users/abner/workplace/HybirdApp/TypeMark/Docs" tabindex="-1">
+	                    <div class="file-list-item-parent-loc">Docs</div>
+	                    <div class="file-list-item-time">Nov 12</div>
+	                    <div class="file-list-item-file-name">
+	                        <span class="file-list-item-file-name-part">Use Images in Typora</span><span class="file-list-item-file-ext-part">.md</span>
+	                    </div>
+	                    <div class="file-list-item-summary"> Use Images in Typora<br> Images in Markdown<br>In markdown, image is written like !alt . The src here can either be a url like https://octodex.github.com/images/yaktocat.png , or an absolute/relative file path, like ../images/test.png .<br>More Topics about Image:<br>[TOC]<br> How to insert images in Typora<br> Write the Markdown<br>You could simply write down the markdown syntax to insert the image. Or click "image" from menubar, or press the shortcut key. When you do this, and meanwhile, if there is an image url in clipboard, then the url will be inserted into the src part directly.</div>
+	                </div><div class="file-list-item file-library-node file-library-file-node" data-path="/Users/abner/workplace/HybirdApp/TypeMark/Docs/Use Typora From Shell or cmd.md" data-parent-path="/Users/abner/workplace/HybirdApp/TypeMark/Docs" tabindex="-1">
+	                    <div class="file-list-item-parent-loc">Docs</div>
+	                    <div class="file-list-item-time">Aug 13</div>
+	                    <div class="file-list-item-file-name">
+	                        <span class="file-list-item-file-name-part">Use Typora From Shell or cmd</span><span class="file-list-item-file-ext-part">.md</span>
+	                    </div>
+	                    <div class="file-list-item-summary"> Use Typora From Shell or Cmd<br> macOS<br>You could use open -a typora xxx.md to open target markdown in Typora. If Typora is your default editor for .md file, when open xxx.md would be enough.<br>You could also add<br>shell<br>alias typora "open -a typora"<br>in your .bash profile or other configuration file, then you would be able to do typora xxx.md to open the markdown file from shell/terminal directly.<br> Windows<br>If Typora is set as the default markdown editor, then in cmd.exe, input .md file path directly would open target markdown file. For example: ./example.md .<br>You </div>
+	                </div><div class="file-list-item file-library-node file-library-file-node" data-path="/Users/abner/workplace/HybirdApp/TypeMark/lib/MathJax-2.6.1/LICENSE" data-parent-path="/Users/abner/workplace/HybirdApp/TypeMark/lib/MathJax-2.6.1" tabindex="-1">
+	                    <div class="file-list-item-parent-loc">MathJax-2.6.1</div>
+	                    <div class="file-list-item-time">2016-03-27</div>
+	                    <div class="file-list-item-file-name">
+	                        <span class="file-list-item-file-name-part">LICENSE</span><span class="file-list-item-file-ext-part"></span>
+	                    </div>
+	                    <div class="file-list-item-summary">Apache License<br>Version 2.0, January 2004<br>http://www.apache.org/licenses/<br>TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION<br>1. Definitions.<br>"License" shall mean the terms and conditions for use, reproduction,<br>and distribution as defined by Sections 1 through 9 of this document.<br>"Licensor" shall mean the copyright owner or entity authorized by<br>the copyright owner that is granting the License.<br>"Legal Entity" shall mean the union of the acting entity and all<br></div>
+	                </div><div class="file-list-item file-library-node file-library-file-node" data-path="/Users/abner/workplace/HybirdApp/TypeMark/Docs/Electron/Change Log.md" data-parent-path="/Users/abner/workplace/HybirdApp/TypeMark/Docs/Electron" tabindex="-1">
+	                    <div class="file-list-item-parent-loc">Electron</div>
+	                    <div class="file-list-item-time">Dec 14</div>
+	                    <div class="file-list-item-file-name">
+	                        <span class="file-list-item-file-name-part">Change Log</span><span class="file-list-item-file-ext-part">.md</span>
+	                    </div>
+	                    <div class="file-list-item-summary"> 0.9.41 (beta)<br>14, Dec, 2017<br>1. Add Chinese user interface.<br>2. Tables with long content supports scroll horizontally.<br>3. Improve PDF export, fix bugs relates to PDF export.<br>4. Add strict mode option for parsing markdown.<br>5. Fix bug that cannot open correct link address for hyperlink syntax.<br>6. Some fix bug about markdown parse logic.<br>7. Fix bugs about [TOC] .<br>8. Fix a bug that some options in advanced settings are not applied.<br>9. Other bug fix.<br> 0.9.38 (beta)<br>29, Oct, 2017<br>1. Support &lt;br/&gt; tag in live rendering.<br>2. Update emoji library to co</div>
+	                </div><div class="file-list-item file-library-node file-library-file-node" data-path="/Users/abner/workplace/HybirdApp/TypeMark/Docs/Electron/Quick Start.md" data-parent-path="/Users/abner/workplace/HybirdApp/TypeMark/Docs/Electron" tabindex="-1">
+	                    <div class="file-list-item-parent-loc">Electron</div>
+	                    <div class="file-list-item-time">Nov 18</div>
+	                    <div class="file-list-item-file-name">
+	                        <span class="file-list-item-file-name-part">Quick Start</span><span class="file-list-item-file-ext-part">.md</span>
+	                    </div>
+	                    <div class="file-list-item-summary"> Welcome<br>Thank you for choosing Typora . This document will help you to start Typora. Please note that Typora for Windows is still in beta phase, so this document may be updated in future version-ups.<br>[TOC]<br> Live Preview Typora use the feature: Live Preview , meaning that you could see these inline styles after you finish typing, and see block styles when you type or after you press Enter key or focus to another paragraph. Just try to type some markdown in typora, and you would see how it works. Note : Markdown tags for inline styles, such as will be hided or displayed</div>
+	                </div><div class="file-list-item file-library-node file-library-file-node" data-path="/Users/abner/workplace/HybirdApp/TypeMark/lib/codemirror/AUTHORS" data-parent-path="/Users/abner/workplace/HybirdApp/TypeMark/lib/codemirror" tabindex="-1">
+	                    <div class="file-list-item-parent-loc">codemirror</div>
+	                    <div class="file-list-item-time">2014-06-05</div>
+	                    <div class="file-list-item-file-name">
+	                        <span class="file-list-item-file-name-part">AUTHORS</span><span class="file-list-item-file-ext-part"></span>
+	                    </div>
+	                    <div class="file-list-item-summary">List of CodeMirror contributors. Updated before every release.<br>4r2r<br>Aaron Brooks<br>Adam King<br>adanlobato<br>Adán Lobato<br>aeroson<br>Ahmad Amireh<br>Ahmad M. Zawawi<br>ahoward<br>Akeksandr Motsjonov<br>Albert Xing<br>Alexander Pavlov<br>Alexander Schepanovski<br>alexey-k<br>Alex Piggott<br>Amy<br>Ananya Sen<br>AndersMad<br>Andre von Houck<br>Andrey Lushnikov<br>Andy Kimball<br>Andy Li<br>angelozerr<br>angelo.zerr@gmail.com<br>Ankit Ahuja<br>Ansel Santosa<br>Anthony Grimes<br>areos<br>Atul Bhouraskar<br>Aurelian Oancea<br>Bastian Müller<br>benbro<br>Benjamin DeCoste<br>Ben Keen<br>boomyjee<br>borawjm<br>Brandon Frohs<br>Brett Zamir<br>Brian Sletten<br>Bruce Mitchener<br>Chandra Sekhar Pydi<br>Charles Skel</div>
+	                </div><div class="file-list-item file-library-node file-library-file-node" data-path="/Users/abner/workplace/HybirdApp/TypeMark/lib/codemirror/CONTRIBUTING.md" data-parent-path="/Users/abner/workplace/HybirdApp/TypeMark/lib/codemirror" tabindex="-1">
+	                    <div class="file-list-item-parent-loc">codemirror</div>
+	                    <div class="file-list-item-time">2014-06-05</div>
+	                    <div class="file-list-item-file-name">
+	                        <span class="file-list-item-file-name-part">CONTRIBUTING</span><span class="file-list-item-file-ext-part">.md</span>
+	                    </div>
+	                    <div class="file-list-item-summary"> How to contribute<br>- Getting help<br>- Submitting bug reports<br>- Contributing code<br> Getting help<br>Community discussion, questions, and informal bug reporting is done on the<br>CodeMirror Google group.<br> Submitting bug reports<br>The preferred way to report bugs is to use the<br>GitHub issue tracker. Before<br>reporting a bug, read these pointers. Note: The issue tracker is for bugs , not requests for help. Questions<br>should be asked on the</div>
+	                </div><div class="file-list-item file-library-node file-library-file-node" data-path="/Users/abner/workplace/HybirdApp/TypeMark/lib/codemirror/LICENSE" data-parent-path="/Users/abner/workplace/HybirdApp/TypeMark/lib/codemirror" tabindex="-1">
+	                    <div class="file-list-item-parent-loc">codemirror</div>
+	                    <div class="file-list-item-time">2014-06-05</div>
+	                    <div class="file-list-item-file-name">
+	                        <span class="file-list-item-file-name-part">LICENSE</span><span class="file-list-item-file-ext-part"></span>
+	                    </div>
+	                    <div class="file-list-item-summary">Copyright (C) 2013 by Marijn Haverbeke &lt;marijnh@gmail.com&gt; and others<br>Permission is hereby granted, free of charge, to any person obtaining a copy<br>of this software and associated documentation files (the "Software"), to deal<br>in the Software without restriction, including without limitation the rights<br>to use, copy, modify, merge, publish, distribute, sublicense, and/or sell<br>copies of the Software, and to permit persons to whom the Software is<br>furnished to do so, subject to the following conditions:<br>The above copyright notice and this permission notice shall be included in<br>all copies or substan</div>
+	                </div><div class="file-list-item file-library-node file-library-file-node" data-path="/Users/abner/workplace/HybirdApp/TypeMark/lib/codemirror/README.md" data-parent-path="/Users/abner/workplace/HybirdApp/TypeMark/lib/codemirror" tabindex="-1">
+	                    <div class="file-list-item-parent-loc">codemirror</div>
+	                    <div class="file-list-item-time">2014-06-05</div>
+	                    <div class="file-list-item-file-name">
+	                        <span class="file-list-item-file-name-part">README</span><span class="file-list-item-file-ext-part">.md</span>
+	                    </div>
+	                    <div class="file-list-item-summary"> CodeMirror<br>![Build Status](http://travis-ci.org/marijnh/CodeMirror)<br>![NPM version](http://badge.fury.io/js/codemirror)<br>CodeMirror is a JavaScript component that provides a code editor in<br>the browser. When a mode is available for the language you are coding<br>in, it will color your code, and optionally help with indentation.<br>The project page is http://codemirror.net<br>The manual is at http://codemirror.net/doc/manual.html<br>The contributing guidelines are in [CONTRIBUTING.md](https:/</div>
+	                </div><div class="file-list-item file-library-node file-library-file-node" data-path="/Users/abner/workplace/HybirdApp/TypeMark/lib/danielstocks-jQuery-Collapse/LICENSE" data-parent-path="/Users/abner/workplace/HybirdApp/TypeMark/lib/danielstocks-jQuery-Collapse" tabindex="-1">
+	                    <div class="file-list-item-parent-loc">danielstocks-jQuery-Collapse</div>
+	                    <div class="file-list-item-time">2015-07-17</div>
+	                    <div class="file-list-item-file-name">
+	                        <span class="file-list-item-file-name-part">LICENSE</span><span class="file-list-item-file-ext-part"></span>
+	                    </div>
+	                    <div class="file-list-item-summary">The MIT License (MIT)<br>Copyright (c) 2013 Daniel Stocks<br>Permission is hereby granted, free of charge, to any person obtaining a copy of<br>this software and associated documentation files (the "Software"), to deal in<br>the Software without restriction, including without limitation the rights to<br>use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of<br>the Software, and to permit persons to whom the Software is furnished to do so,<br>subject to the following conditions:<br>The above copyright notice and this permission notice shall be included in all<br>copies or substantial portions </div>
+	                </div><div class="file-list-item file-library-node file-library-file-node" data-path="/Users/abner/workplace/HybirdApp/TypeMark/lib/danielstocks-jQuery-Collapse/README.md" data-parent-path="/Users/abner/workplace/HybirdApp/TypeMark/lib/danielstocks-jQuery-Collapse" tabindex="-1">
+	                    <div class="file-list-item-parent-loc">danielstocks-jQuery-Collapse</div>
+	                    <div class="file-list-item-time">2015-07-17</div>
+	                    <div class="file-list-item-file-name">
+	                        <span class="file-list-item-file-name-part">README</span><span class="file-list-item-file-ext-part">.md</span>
+	                    </div>
+	                    <div class="file-list-item-summary"> jQuery Collapse<br>A lightweight and flexible jQuery plugin that allows you to collapse content. A feature also known as 'progressive disclosure'.<br>jQuery Collapse is tested agaisnt the latest version of jQuery but requires at least jQuery 1.7.0.<br> Features<br>- WAI ARIA compliant<br>- Lightweight (~1.2kb minified and gzipped)<br>- Cross Browser compliant (Tested in &gt; IE6, Firefox, Safari, Chrome, Opera)<br>Accordion behaviour can be enabled.<br>Persistence to remember open sections on page reload!<br> Demo<br>A demo showcasing al</div>
+	                </div><div class="file-list-item file-library-node file-library-file-node" data-path="/Users/abner/workplace/HybirdApp/TypeMark/lib/exoskeleton-master/CHANGELOG.md" data-parent-path="/Users/abner/workplace/HybirdApp/TypeMark/lib/exoskeleton-master" tabindex="-1">
+	                    <div class="file-list-item-parent-loc">exoskeleton-master</div>
+	                    <div class="file-list-item-time">2015-07-17</div>
+	                    <div class="file-list-item-file-name">
+	                        <span class="file-list-item-file-name-part">CHANGELOG</span><span class="file-list-item-file-ext-part">.md</span>
+	                    </div>
+	                    <div class="file-list-item-summary"> Exoskeleton 0.7.0 (4 August 2014) Breaking: Align Exoskeleton with latest Backbone (specifically<br>  jashkenas/backbone#3003).<br>Remove View#find, View#findAll, and View#useNative<br>Remove utils.matchesSelector, utils.delegate, and utils.delegate<br>Remove keepOld property from delegateEvents . Use delegate to add<br>individual events now.<br>All hooks from jashkenas/backbone#3003. Instructions here. Add Router#execute and Router#atRoot Add Collection# addReference Add .has to utils Remove utils.a</div>
+	                </div><div class="file-list-item file-library-node file-library-file-node" data-path="/Users/abner/workplace/HybirdApp/TypeMark/lib/exoskeleton-master/LICENSE" data-parent-path="/Users/abner/workplace/HybirdApp/TypeMark/lib/exoskeleton-master" tabindex="-1">
+	                    <div class="file-list-item-parent-loc">exoskeleton-master</div>
+	                    <div class="file-list-item-time">2015-07-17</div>
+	                    <div class="file-list-item-file-name">
+	                        <span class="file-list-item-file-name-part">LICENSE</span><span class="file-list-item-file-ext-part"></span>
+	                    </div>
+	                    <div class="file-list-item-summary">The MIT License (MIT)<br>Copyright (c) 2013 Paul Miller (http://paulmillr.com)<br>Copyright (c) 2010-2011 Jeremy Ashkenas, DocumentCloud Inc.<br>Permission is hereby granted, free of charge, to any person obtaining a copy of<br>this software and associated documentation files (the "Software"), to deal in<br>the Software without restriction, including without limitation the rights to<br>use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of<br>the Software, and to permit persons to whom the Software is furnished to do so,<br>subject to the following conditions:<br>The above copyright notice an</div>
+	                </div><div class="file-list-item file-library-node file-library-file-node" data-path="/Users/abner/workplace/HybirdApp/TypeMark/lib/exoskeleton-master/Makefile" data-parent-path="/Users/abner/workplace/HybirdApp/TypeMark/lib/exoskeleton-master" tabindex="-1">
+	                    <div class="file-list-item-parent-loc">exoskeleton-master</div>
+	                    <div class="file-list-item-time">2015-07-17</div>
+	                    <div class="file-list-item-file-name">
+	                        <span class="file-list-item-file-name-part">Makefile</span><span class="file-list-item-file-ext-part"></span>
+	                    </div>
+	                    <div class="file-list-item-summary">exoskeleton:<br>	cat lib/{header,utils,events,model,collection,footer}.js &gt; exoskeleton.js<br>min:<br>	uglifyjs -m &lt; exoskeleton.js &gt; exoskeleton.min.js<br>	wc exoskeleton.js<br>	gzip -9 &lt; exoskeleton.js | wc<br>	gzip -9 &lt; exoskeleton.min.js | wc<br>test:<br>	phantomjs test/vendor/runner.js test/index.html?noglobals true<br>.PHONY: test<br></div>
+	                </div><div class="file-list-item file-library-node file-library-file-node" data-path="/Users/abner/workplace/HybirdApp/TypeMark/lib/exoskeleton-master/README.md" data-parent-path="/Users/abner/workplace/HybirdApp/TypeMark/lib/exoskeleton-master" tabindex="-1">
+	                    <div class="file-list-item-parent-loc">exoskeleton-master</div>
+	                    <div class="file-list-item-time">2015-07-17</div>
+	                    <div class="file-list-item-file-name">
+	                        <span class="file-list-item-file-name-part">README</span><span class="file-list-item-file-ext-part">.md</span>
+	                    </div>
+	                    <div class="file-list-item-summary"> Exoskeleton<br>Exoskeleton is a faster and leaner Backbone for your HTML5 apps.<br>http://exosjs.com<br> What already works<br>All features you need for real-world app are working.<br>All software tests are passing: underscore Backbone: with and without Underscore Chaplin: with and without Underscore<br>Marionette and other popular plugins: WIP.<br> Building<br>Default and custom builds:<br>make # Will create exoskeleton.js<br>make noutils # If you want to use Underscore<br> and don't want to include Exoskeleton.utils .<br>make min     # Minified</div>
+	                </div><div class="file-list-item file-library-node file-library-file-node" data-path="/Users/abner/workplace/HybirdApp/TypeMark/lib/ionicons-2.0.1/LICENSE" data-parent-path="/Users/abner/workplace/HybirdApp/TypeMark/lib/ionicons-2.0.1" tabindex="-1">
+	                    <div class="file-list-item-parent-loc">ionicons-2.0.1</div>
+	                    <div class="file-list-item-time">2015-07-17</div>
+	                    <div class="file-list-item-file-name">
+	                        <span class="file-list-item-file-name-part">LICENSE</span><span class="file-list-item-file-ext-part"></span>
+	                    </div>
+	                    <div class="file-list-item-summary">The MIT License (MIT)<br>Copyright (c) 2014 Drifty (http://drifty.com/)<br>Permission is hereby granted, free of charge, to any person obtaining a copy<br>of this software and associated documentation files (the "Software"), to deal<br>in the Software without restriction, including without limitation the rights<br>to use, copy, modify, merge, publish, distribute, sublicense, and/or sell<br>copies of the Software, and to permit persons to whom the Software is<br>furnished to do so, subject to the following conditions:<br>The above copyright notice and this permission notice shall be included in<br>all copies or substan</div>
+	                </div><div class="file-list-item file-library-node file-library-file-node" data-path="/Users/abner/workplace/HybirdApp/TypeMark/lib/ionicons-2.0.1/readme.md" data-parent-path="/Users/abner/workplace/HybirdApp/TypeMark/lib/ionicons-2.0.1" tabindex="-1">
+	                    <div class="file-list-item-parent-loc">ionicons-2.0.1</div>
+	                    <div class="file-list-item-time">2015-07-17</div>
+	                    <div class="file-list-item-file-name">
+	                        <span class="file-list-item-file-name-part">readme</span><span class="file-list-item-file-ext-part">.md</span>
+	                    </div>
+	                    <div class="file-list-item-summary"> Ionicons<br>The premium icon font for Ionic. Designed by @benjsperry.<br>Note: All brand icons are trademarks of their respective owners. The use of these trademarks does not indicate endorsement of the trademark holder by Drifty, nor vice versa.<br>Visit ionicons.com and  check out the search feature, which has keywords identifying common icon names and styles. For example, if you search for “arrow” we call up every icon that could possibly be used as an arrow. We’ve also included each icon’s class name</div>
+	                </div><div class="file-list-item file-library-node file-library-file-node" data-path="/Users/abner/workplace/HybirdApp/TypeMark/lib/jquery-localize-master/CONTRIBUTING.md" data-parent-path="/Users/abner/workplace/HybirdApp/TypeMark/lib/jquery-localize-master" tabindex="-1">
+	                    <div class="file-list-item-parent-loc">jquery-localize-master</div>
+	                    <div class="file-list-item-time">2014-06-05</div>
+	                    <div class="file-list-item-file-name">
+	                        <span class="file-list-item-file-name-part">CONTRIBUTING</span><span class="file-list-item-file-ext-part">.md</span>
+	                    </div>
+	                    <div class="file-list-item-summary"> Contributing<br> Important notes<br>Please don't edit files in the dist subdirectory as they are generated via Grunt. You'll find source code in the src subdirectory! This plugin is written in CoffeeScript<br> Code style<br>Regarding code style like indentation and whitespace, follow the conventions you see used in the source already. PhantomJS<br>While Grunt can run the included unit tests via PhantomJS, this shouldn't be considered a substitute for the real thing. Please be sure to test the test/ .html unit test f</div>
+	                </div><div class="file-list-item file-library-node file-library-file-node" data-path="/Users/abner/workplace/HybirdApp/TypeMark/lib/list.js-master/History.md" data-parent-path="/Users/abner/workplace/HybirdApp/TypeMark/lib/list.js-master" tabindex="-1">
+	                    <div class="file-list-item-parent-loc">list.js-master</div>
+	                    <div class="file-list-item-time">2015-07-17</div>
+	                    <div class="file-list-item-file-name">
+	                        <span class="file-list-item-file-name-part">History</span><span class="file-list-item-file-ext-part">.md</span>
+	                    </div>
+	                    <div class="file-list-item-summary"> Changelog<br> 2014-07<br>[Feature] Make it possble to add event handlers on init new List('listId', { searchComplete: function(list) {} }) .<br>[Bugfix] Include reference to List when initializing plugins. Fix for require.js which don't have a global reference to List.<br>[Bugfix] Fix index async<br>https://github.com/javve/list.js/issues/268<br>[Bugfix] Fix add async<br> 2014-02-03: 1.1.1<br>[Bugfix] Update javve/events version which fixes critical bugs in Safari for PC and PhantomJS (which makes the command line tests work again).<br>[Bugfix] Clear search when clicking in the HT</div>
+	                </div><div class="file-list-item file-library-node file-library-file-node" data-path="/Users/abner/workplace/HybirdApp/TypeMark/lib/list.js-master/LICENSE" data-parent-path="/Users/abner/workplace/HybirdApp/TypeMark/lib/list.js-master" tabindex="-1">
+	                    <div class="file-list-item-parent-loc">list.js-master</div>
+	                    <div class="file-list-item-time">2015-07-17</div>
+	                    <div class="file-list-item-file-name">
+	                        <span class="file-list-item-file-name-part">LICENSE</span><span class="file-list-item-file-ext-part"></span>
+	                    </div>
+	                    <div class="file-list-item-summary">The MIT License (MIT)<br>Copyright (c) 2011-2014 Jonny Strömberg, jonnystromberg.com<br>Permission is hereby granted, free of charge, to any person obtaining a copy<br>of this software and associated documentation files (the "Software"), to deal<br>in the Software without restriction, including without limitation the rights<br>to use, copy, modify, merge, publish, distribute, sublicense, and/or sell<br>copies of the Software, and to permit persons to whom the Software is<br>furnished to do so, subject to the following conditions:<br>The above copyright notice and this permission notice shall be included in<br>all cop</div>
+	                </div><div class="file-list-item file-library-node file-library-file-node" data-path="/Users/abner/workplace/HybirdApp/TypeMark/lib/list.js-master/README.md" data-parent-path="/Users/abner/workplace/HybirdApp/TypeMark/lib/list.js-master" tabindex="-1">
+	                    <div class="file-list-item-parent-loc">list.js-master</div>
+	                    <div class="file-list-item-time">2015-07-17</div>
+	                    <div class="file-list-item-file-name">
+	                        <span class="file-list-item-file-name-part">README</span><span class="file-list-item-file-ext-part">.md</span>
+	                    </div>
+	                    <div class="file-list-item-summary"> List.js<br>Perfect library for adding search , sort , filters and flexibility to tables , lists and various HTML elements. Built to be invisible and work on existing HTML.<br>Really simple and easy to use!<br>![Donate](https://www.paypal.com/cgi-bin/webscr?cmd s-xclick&amp;hosted button id M7ZGHV75VSD2E)<br> Core idea<br>- Simple and invisible<br>- Easy to apply to existing HTML<br>- No dependencies<br>- Fast<br>- Small<br>- Handle thousands of items<br> Features<br>- Works both lists, tables and almost anything else. E.g. &lt;div&gt; , &lt;ul&gt; , &lt;table&gt; , </div>
+	                </div><div class="file-list-item file-library-node file-library-file-node" data-path="/Users/abner/workplace/HybirdApp/TypeMark/lib/typora-icon/Read Me.txt" data-parent-path="/Users/abner/workplace/HybirdApp/TypeMark/lib/typora-icon" tabindex="-1">
+	                    <div class="file-list-item-parent-loc">typora-icon</div>
+	                    <div class="file-list-item-time">Sep 08</div>
+	                    <div class="file-list-item-file-name">
+	                        <span class="file-list-item-file-name-part">Read Me</span><span class="file-list-item-file-ext-part">.txt</span>
+	                    </div>
+	                    <div class="file-list-item-summary">Open demo.html to see a list of all the glyphs in your font along with their codes/ligatures.<br>To use the generated font in desktop programs, you can install the TTF font. In order to copy the character associated with each icon, refer to the text box at the bottom right corner of each glyph in demo.html. The character inside this text box may be invisible; but it can still be copied. See this guide for more info: https://icomoon.io/#docs/local-fonts<br>You won't need any of the files located under the demo-files directory when including the generated font in your own projects.<br>You can impor</div>
+	                </div><div class="file-list-item file-library-node file-library-file-node" data-path="/Users/abner/workplace/HybirdApp/TypeMark/script/bin/typora" data-parent-path="/Users/abner/workplace/HybirdApp/TypeMark/script/bin" tabindex="-1">
+	                    <div class="file-list-item-parent-loc">bin</div>
+	                    <div class="file-list-item-time">2016-05-26</div>
+	                    <div class="file-list-item-file-name">
+	                        <span class="file-list-item-file-name-part">typora</span><span class="file-list-item-file-ext-part"></span>
+	                    </div>
+	                    <div class="file-list-item-summary">!/usr/bin/env bash<br> Copyright (c) Microsoft Corporation. All rights reserved.<br> Licensed under the MIT License. See License.txt in the project root for license information.<br>NAME "Typora"<br>DIR " ( cd " ( dirname " {BASH SOURCE[0]}" )" &amp;&amp; pwd )"<br>ELECTRON " DIR/../ NAME.exe"<br>ELECTRON NO ATTACH CONSOLE 1 " ELECTRON" " @" &amp;</div>
+	                </div><div class="file-list-item file-library-node file-library-file-node" data-path="/Users/abner/workplace/HybirdApp/TypeMark/test/demo/CppCoreGuidelines.md" data-parent-path="/Users/abner/workplace/HybirdApp/TypeMark/test/demo" tabindex="-1">
+	                    <div class="file-list-item-parent-loc">demo</div>
+	                    <div class="file-list-item-time">Aug 10</div>
+	                    <div class="file-list-item-file-name">
+	                        <span class="file-list-item-file-name-part">CppCoreGuidelines</span><span class="file-list-item-file-ext-part">.md</span>
+	                    </div>
+	                    <div class="file-list-item-summary"> &lt;a name "main"&gt;&lt;/a&gt;C++ Core Guidelines<br>February 11, 2017<br>Editors: Bjarne Stroustrup Herb Sutter<br>This document is a very early draft. It is inkorrekt, incompleat, and pÂµÃoorly formatted.<br>Had it been an open source (code) project, this would have been release 0.7.<br>Copying, use, modification, and creation of derivative works from this project is licensed under an MIT-style license.<br>Contributing to this project requires agreeing to a Contributor License. See the accompanying LICENSE file for details.<br>We make this proje</div>
+	                </div><div class="file-list-item file-library-node file-library-file-node" data-path="/Users/abner/workplace/HybirdApp/TypeMark/test/demo/fix.md" data-parent-path="/Users/abner/workplace/HybirdApp/TypeMark/test/demo" tabindex="-1">
+	                    <div class="file-list-item-parent-loc">demo</div>
+	                    <div class="file-list-item-time">Aug 10</div>
+	                    <div class="file-list-item-file-name">
+	                        <span class="file-list-item-file-name-part">fix</span><span class="file-list-item-file-ext-part">.md</span>
+	                    </div>
+	                    <div class="file-list-item-summary">1. Esc key on touchbar for search panel.<br>2. print gif in exported PDF. mmmmm<br>3. swqswqswq<br>4. swqswqswqswqswqs<br>5. dewd ew de wdew<br>6. dewd ewd ew dewdew<br></div>
+	                </div><div class="file-list-item file-library-node file-library-file-node" data-path="/Users/abner/workplace/HybirdApp/TypeMark/test/demo/sample-eqrefs.md" data-parent-path="/Users/abner/workplace/HybirdApp/TypeMark/test/demo" tabindex="-1">
+	                    <div class="file-list-item-parent-loc">demo</div>
+	                    <div class="file-list-item-time">Aug 10</div>
+	                    <div class="file-list-item-file-name">
+	                        <span class="file-list-item-file-name-part">sample-eqrefs</span><span class="file-list-item-file-ext-part">.md</span>
+	                    </div>
+	                    <div class="file-list-item-summary">Here is a labeled equation: x+1\over\sqrt{1-x^2}\label{ref1} with a reference to ref1: \ref{ref1} , and another numbered one with no label: x+1\over\sqrt{1-x^2} This one uses \nonumber: x+1\over\sqrt{1-x^2}\nonumber Here's one using the equation environment: \begin{equation}<br>x+1\over\sqrt{1-x^2}<br>\end{equation} and one with equation environment: \begin{equation }<br>x+1\over\sqrt{1-x^2}<br>\end{equation } This is a forward reference [\ref{ref2}] and another \eqref{ref2} for the<br>following equation: x+1\over\sqrt{1-x^2}\label{ref2} More math: x</div>
+	                </div><div class="file-list-item file-library-node file-library-file-node" data-path="/Users/abner/workplace/HybirdApp/TypeMark/lib/codemirror/bin/compress" data-parent-path="/Users/abner/workplace/HybirdApp/TypeMark/lib/codemirror/bin" tabindex="-1">
+	                    <div class="file-list-item-parent-loc">bin</div>
+	                    <div class="file-list-item-time">2014-06-05</div>
+	                    <div class="file-list-item-file-name">
+	                        <span class="file-list-item-file-name-part">compress</span><span class="file-list-item-file-ext-part"></span>
+	                    </div>
+	                    <div class="file-list-item-summary">!/usr/bin/env node<br>// Compression helper for CodeMirror<br>//<br>// Example:<br>//<br>//   bin/compress codemirror runmode javascript xml<br>//<br>// Will take lib/codemirror.js, addon/runmode/runmode.js,<br>// mode/javascript/javascript.js, and mode/xml/xml.js, run them though<br>// the online minifier at http://marijnhaverbeke.nl/uglifyjs, and spit<br>// out the result.<br>//<br>//   bin/compress codemirror --local /path/to/bin/UglifyJS<br>//<br>// Will use a local minifier instead of the online default one.<br>//<br>// Script files are specified without .js ending. Prefixing them with<br>// their full (local) path is optional. So you ma</div>
+	                </div><div class="file-list-item file-library-node file-library-file-node" data-path="/Users/abner/workplace/HybirdApp/TypeMark/lib/codemirror/bin/lint" data-parent-path="/Users/abner/workplace/HybirdApp/TypeMark/lib/codemirror/bin" tabindex="-1">
+	                    <div class="file-list-item-parent-loc">bin</div>
+	                    <div class="file-list-item-time">2014-06-05</div>
+	                    <div class="file-list-item-file-name">
+	                        <span class="file-list-item-file-name-part">lint</span><span class="file-list-item-file-ext-part"></span>
+	                    </div>
+	                    <div class="file-list-item-summary">!/usr/bin/env node<br>var lint require("../test/lint/lint"),<br>path require("path");<br>if (process.argv.length &gt; 2) {<br>  lint.checkDir(process.argv[2]);<br>} else {<br>  process.chdir(path.resolve( dirname, ".."));<br>  lint.checkDir("lib");<br>  lint.checkDir("mode");<br>  lint.checkDir("addon");<br>  lint.checkDir("keymap");<br>}<br>process.exit(lint.success() ? 0 : 1);<br></div>
+	                </div><div class="file-list-item file-library-node file-library-file-node" data-path="/Users/abner/workplace/HybirdApp/TypeMark/lib/codemirror/bin/source-highlight" data-parent-path="/Users/abner/workplace/HybirdApp/TypeMark/lib/codemirror/bin" tabindex="-1">
+	                    <div class="file-list-item-parent-loc">bin</div>
+	                    <div class="file-list-item-time">2014-06-05</div>
+	                    <div class="file-list-item-file-name">
+	                        <span class="file-list-item-file-name-part">source-highlight</span><span class="file-list-item-file-ext-part"></span>
+	                    </div>
+	                    <div class="file-list-item-summary">!/usr/bin/env node<br>// Simple command-line code highlighting tool. Reads code from stdin,<br>// spits html to stdout. For example:<br>//<br>//   echo 'function foo(a) { return a; }' | bin/source-highlight -s javascript<br>//   bin/source-highlight -s<br>var fs require("fs");<br>CodeMirror require("../addon/runmode/runmode.node.js");<br>require("../mode/meta.js");<br>var sPos process.argv.indexOf("-s");<br>if (sPos -1 || sPos process.argv.length - 1) {<br>console.error("Usage: source-highlight -s language");<br>process.exit(1);<br>}<br>var lang process.argv[sPos + 1].toLowerCase(), modeName lang;<br>CodeMirror</div>
+	                </div><div class="file-list-item file-library-node file-library-file-node" data-path="/Users/abner/workplace/HybirdApp/TypeMark/style/themes/newsprint/OFL.txt" data-parent-path="/Users/abner/workplace/HybirdApp/TypeMark/style/themes/newsprint" tabindex="-1">
+	                    <div class="file-list-item-parent-loc">newsprint</div>
+	                    <div class="file-list-item-time">Oct 13</div>
+	                    <div class="file-list-item-file-name">
+	                        <span class="file-list-item-file-name-part">OFL</span><span class="file-list-item-file-ext-part">.txt</span>
+	                    </div>
+	                    <div class="file-list-item-summary">Copyright (c) 2010, ParaType Ltd. (http://www.paratype.com/public),<br>with Reserved Font Names "PT Sans", "PT Serif" and "ParaType".<br>This Font Software is licensed under the SIL Open Font License, Version 1.1.<br>This license is copied below, and is also available with a FAQ at:<br>http://scripts.sil.org/OFL<br>SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007<br>PREAMBLE<br>The goals of the Open Font License (OFL) are to stimulate worldwide<br>development of collaborative font projects, to</div>
+	                </div><div class="file-list-item file-library-node file-library-file-node" data-path="/Users/abner/workplace/HybirdApp/TypeMark/style/themes/gothic/GUST e-foundry License.txt" data-parent-path="/Users/abner/workplace/HybirdApp/TypeMark/style/themes/gothic" tabindex="-1">
+	                    <div class="file-list-item-parent-loc">gothic</div>
+	                    <div class="file-list-item-time">Oct 13</div>
+	                    <div class="file-list-item-file-name">
+	                        <span class="file-list-item-file-name-part">GUST e-foundry License</span><span class="file-list-item-file-ext-part">.txt</span>
+	                    </div>
+	                    <div class="file-list-item-summary">This is a preliminary version (2006-09-30), barring acceptance from<br>the LaTeX Project Team and other feedback, of the GUST Font License.<br>(GUST is the Polish TeX Users Group, http://www.gust.org.pl)<br>For the most recent version of this license see<br>http://www.gust.org.pl/fonts/licenses/GUST-FONT-LICENSE.txt<br>or<br>http://tug.org/fonts/licenses/GUST-FONT-LICENSE.txt<br>This work may be distributed and/or modified under the conditions<br>of the LaTeX Project Public License, either version 1.3c of this<br>license or (at your option) any later version.<br>Please also observe the following clause:<br>1) it is requeste</div>
+	                </div><div class="file-list-item file-library-node file-library-file-node" data-path="/Users/abner/workplace/HybirdApp/TypeMark/test/demo/encode/ ISO-8859-2 or windows-1250.md" data-parent-path="/Users/abner/workplace/HybirdApp/TypeMark/test/demo/encode" tabindex="-1">
+	                    <div class="file-list-item-parent-loc">encode</div>
+	                    <div class="file-list-item-time">Aug 10</div>
+	                    <div class="file-list-item-file-name">
+	                        <span class="file-list-item-file-name-part"> ISO-8859-2 or windows-1250</span><span class="file-list-item-file-ext-part">.md</span>
+	                    </div>
+	                    <div class="file-list-item-summary"> Powershell Skripte<br>Hier entsteht eine kleine Übersicht über Problemlösungen per Powershell:<br>[TOC]<br> Export per PowerShell aus AD<br>Get-ADUser -Filter -Properties | select surname, givenname, mail, phone | Export-Csv export.<br>Die Parameter nach der Pipe lassen sich anpassen, z.B. für die Raumnummer "office", der Anzeigename "name".<br></div>
+	                </div><div class="file-list-item file-library-node file-library-file-node" data-path="/Users/abner/workplace/HybirdApp/TypeMark/test/demo/encode/gb.txt" data-parent-path="/Users/abner/workplace/HybirdApp/TypeMark/test/demo/encode" tabindex="-1">
+	                    <div class="file-list-item-parent-loc">encode</div>
+	                    <div class="file-list-item-time">Aug 10</div>
+	                    <div class="file-list-item-file-name">
+	                        <span class="file-list-item-file-name-part">gb</span><span class="file-list-item-file-ext-part">.txt</span>
+	                    </div>
+	                    <div class="file-list-item-summary">所谓的所谓的额外的额外的我德瓦德瓦德瓦大而无当额外德瓦的我的额外的额外单位，德瓦德瓦德瓦的ew.dew德瓦的额外。</div>
+	                </div><div class="file-list-item file-library-node file-library-file-node" data-path="/Users/abner/workplace/HybirdApp/TypeMark/test/demo/encode/UFT8(Chinese).md" data-parent-path="/Users/abner/workplace/HybirdApp/TypeMark/test/demo/encode" tabindex="-1">
+	                    <div class="file-list-item-parent-loc">encode</div>
+	                    <div class="file-list-item-time">Aug 10</div>
+	                    <div class="file-list-item-file-name">
+	                        <span class="file-list-item-file-name-part">UFT8(Chinese)</span><span class="file-list-item-file-ext-part">.md</span>
+	                    </div>
+	                    <div class="file-list-item-summary">得唔得而我得唔得而我的我的饿我的吻得唔得饿我的吻的我的吻的我<br>得唔得挖地而我的文档而我的文档额外的而我</div>
+	                </div><div class="file-list-item file-library-node file-library-file-node" data-path="/Users/abner/workplace/HybirdApp/TypeMark/test/demo/encode/utf8(with western char).txt" data-parent-path="/Users/abner/workplace/HybirdApp/TypeMark/test/demo/encode" tabindex="-1">
+	                    <div class="file-list-item-parent-loc">encode</div>
+	                    <div class="file-list-item-time">Aug 10</div>
+	                    <div class="file-list-item-file-name">
+	                        <span class="file-list-item-file-name-part">utf8(with western char)</span><span class="file-list-item-file-ext-part">.txt</span>
+	                    </div>
+	                    <div class="file-list-item-summary">Frank Zappa, amico di Beefheart e produttore del disco, gli portò un registratore nel luogo più improbabile.<br>Con esso realizzò un'opera delle più grandiose. È stato uno dei più geniali artisti nella storia, era un genio creativo, perché tirò fuori una musica difficile, che si elevò, allontanò la melodia e rivoluzionò il mondo.</div>
+	                </div><div class="file-list-item file-library-node file-library-file-node" data-path="/Users/abner/workplace/HybirdApp/TypeMark/test/demo/encode/utf8(with western char)2.md" data-parent-path="/Users/abner/workplace/HybirdApp/TypeMark/test/demo/encode" tabindex="-1">
+	                    <div class="file-list-item-parent-loc">encode</div>
+	                    <div class="file-list-item-time">Aug 10</div>
+	                    <div class="file-list-item-file-name">
+	                        <span class="file-list-item-file-name-part">utf8(with western char)2</span><span class="file-list-item-file-ext-part">.md</span>
+	                    </div>
+	                    <div class="file-list-item-summary">LG Blog:<br>Post sobre participacao: http://www.lgportugal.com/blog/bloggers-convidados/cinema-3d-arena-jogar-a-tres-dimensoes.aspx#.TuFI4sDYdok<br>XDA:<br>OpenLiveView : http://www.xda-developers.com/android/liveview-being-reverse-engineered-and-redesigned/<br>Samsung exploit descovery: http://www.xda-developers.com/android/location-security-exploit-on-samsung-devices/<br>2ndInit Defy: http://www.xda-developers.com/android/installer-for-2ndinit-recovery-mod/<br>Rooting Defy: http://www.xda-developers.com/android/rooting-the-moto-defy/<br>SGS screen changer : http://www.xda-developers.com/android/set-default</div>
+	                </div><div class="file-list-item file-library-node file-library-file-node" data-path="/Users/abner/workplace/HybirdApp/TypeMark/test/demo/encode/utf8(with western char)3.md" data-parent-path="/Users/abner/workplace/HybirdApp/TypeMark/test/demo/encode" tabindex="-1">
+	                    <div class="file-list-item-parent-loc">encode</div>
+	                    <div class="file-list-item-time">Aug 10</div>
+	                    <div class="file-list-item-file-name">
+	                        <span class="file-list-item-file-name-part">utf8(with western char)3</span><span class="file-list-item-file-ext-part">.md</span>
+	                    </div>
+	                    <div class="file-list-item-summary">It costs 3€.<br></div>
+	                </div><div class="file-list-item file-library-node file-library-file-node" data-path="/Users/abner/workplace/HybirdApp/TypeMark/test/demo/encode/windows-1252.txt" data-parent-path="/Users/abner/workplace/HybirdApp/TypeMark/test/demo/encode" tabindex="-1">
+	                    <div class="file-list-item-parent-loc">encode</div>
+	                    <div class="file-list-item-time">Aug 10</div>
+	                    <div class="file-list-item-file-name">
+	                        <span class="file-list-item-file-name-part">windows-1252</span><span class="file-list-item-file-ext-part">.txt</span>
+	                    </div>
+	                    <div class="file-list-item-summary">Das ist ein Test mit Änderungen, die Umlaute beinhalten.<br>Über diese Änderungen kann nichts weiter bemerkt werden.<br></div>
+	                </div><div class="file-list-item file-library-node file-library-file-node" data-path="/Users/abner/workplace/HybirdApp/TypeMark/style/themes/pixyll/OFL.txt" data-parent-path="/Users/abner/workplace/HybirdApp/TypeMark/style/themes/pixyll" tabindex="-1">
+	                    <div class="file-list-item-parent-loc">pixyll</div>
+	                    <div class="file-list-item-time">Oct 13</div>
+	                    <div class="file-list-item-file-name">
+	                        <span class="file-list-item-file-name-part">OFL</span><span class="file-list-item-file-ext-part">.txt</span>
+	                    </div>
+	                    <div class="file-list-item-summary">Copyright (c) 2010-2013, Sorkin Type Co (www.sorkintype.com) with Reserved Font Name 'Merriweather'<br>Merriweather is a trademark of Sorkin Type Co.<br>This Font Software is licensed under the SIL Open Font License, Version 1.1.<br>This license is copied below, and is also available with a FAQ at:<br>http://scripts.sil.org/OFL<br>SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007<br>PREAMBLE<br>The goals of the Open Font License (OFL) are to stimulate worldwide<br>development of collaborative </div>
+	                </div></div>
+	            </div>
+	            <script id="file-list-item-template" type="text/x--template">
+	              <div class="file-list-item file-library-node file-library-file-node" data-path="" data-parent-path="" tabindex="-1">
+	                    <div class="file-list-item-parent-loc">/</div>
+	                    <div class="file-list-item-time"></div>
+	                    <div class="file-list-item-file-name">
+	                        <span class="file-list-item-file-name-part"></span><span class="file-list-item-file-ext-part"></span>
+	                    </div>
+	                    <div class="file-list-item-summary"></div>
+	                </div> 
+	            </script>
+
+	            <script id="folder-menu-item-template" type="text/x--template">
+	                <li role="presentation" class="folder-menu-item file-action-item folder-menu-groupm show" ty-hint-pos="right">
+	                    <a role="menuitem" tabindex="-1" href="#"><i class="fa fa-folder-o"></i><span></span></a>
+	                </li>
+	            </script>
+
+	            <script id="sidebar-loading-template" type="text/x--template">
+	                <div class="sidebar-loading-template">
+	                    
+	                </div>
+	            </script>
+
+	            <script id="file-library-node-template" type="text/x--template">
+	              <div class="file-library-node file-tree-node" data-path="" data-has-sub="false" tabindex="-1">
+	                <div class="file-node-background">
+	                    
+	                </div>
+	                <div class="file-node-content">
+	                    <span class="file-node-open-state">
+	                        <i class="fa fa-caret-right"></i><i class="fa fa-caret-down"></i>
+	                    </span>
+	                    <i class="file-node-icon"></i>
+	                    <span class="file-node-title"><span class="file-node-title-name-part"></span><span class="file-node-title-ext-part"></span></span>
+	                    <div class="file-tree-rename-div">
+	                        <input class="file-tree-rename-input"></input>
+	                    </div>
+	                </div>
+	                <div class="file-node-children">
+	                </div>
+	              </div>
+	            </script>
 	        </div>
-	        <div id="file-info-content" style="display:none" class="file-info-untitled">
+	        <div id="file-info-content" class="sidebar-content-content file-info-untitled" style="display:none">
 	        	<div id="file-info-meta-group">
 	        		<div id="file-info-last-saved-sub" class="file-info-item-subtitle">Saved just now</div>
 		            <div class="file-info-title file-info-field ">
 		                <div id="file-info-filename" class="file-info-field-value">Utitled.md</div>
 		                <div id="file-info-filename-input-area" class="file-info-field-value" style="display:none;">
-		                    <input id="file-info-filename-input" readonly=""> <span id="file-info-filename-input-ext"></span></div>
+		                    <input id="file-info-filename-input"> <span id="file-info-filename-input-ext"></span></div>
 		            </div>
 		            <div class="file-info-field" id="file-info-file-path">
 		                <i class="fa fa-folder-o file-info-field-key"></i>
@@ -77,8 +508,88 @@
 	                <div class="file-info-field file-info-field-read"><span class="file-info-field-read-value" id="file-info-field-read-value-word">0</span>words</div>
 	                <div class="file-info-field file-info-field-read"><span class="file-info-field-read-value" id="file-info-field-read-value-ch">0</span>characters</div>
 	            </div>
+				
 	        </div>
 	    	<div class="draggable-rect" style="flex: 1;"></div>
+	    </div>
+	    <div class="sidebar-footer no-selection" id="ty-sidebar-footer">
+	        <div class="sidebar-footer-item footer-item-right footer-btn file-action-item not-empty-menu-group show" id="sidebar-new-file-btn" ty-hint="New File">
+	            <span class="ty-icon ty-add" style="position:relative;top:1px;"></span>
+	        </div>
+	        <div class="sidebar-footer-item footer-item-left footer-btn outline-action-item" id="unpin-outline-btn" ty-hint="Unpin Outline Panel">
+	            <span>
+	                <span class="ty-icon ty-export1"></span>
+	                <span></span>
+	            </span>
+	        </div>
+	        <div class="sidebar-footer-main-item" id="sidebar-menu-btn">
+	            <span class="sidebar-footer-item">
+	                <span class="sidebar-footer-main-item-label" id="sidebar-footer-main-item-label" data-localize="Open Folder..." data-lg="Front">TypeMark</span>
+	                 <span class="footer-btn">
+	                    <span class="ty-icon ty-dots-v" aria-hidden="true"></span>
+	                </span>
+	            </span>
+	            <ul id="sidebar-files-menu" class="dropdown-menu" role="menu" aria-labelledby="drop5" tabindex="-1">
+	                <li role="presentation" class="menuitem-group-label file-action-item not-empty-menu-group show">
+	                    <span class="label" data-localize="Action" data-lg="Front">Action</span>
+	                    
+	                    <span class="ty-icon ty-delete-button" ty-hint="Close Sidebar Menu" id="close-sidebar-menu-btn"></span>
+	                </li>
+	                <li role="presentation" class="file-action-item not-empty-menu-group show">
+	                    <a role="menuitem" tabindex="-1" href="#" id="new-file-from-sidebar-menu" data-localize="New File" data-lg="Front">New File</a>
+	                </li>
+	                <li role="presentation" class="file-action-item not-empty-menu-group show">
+	                    <a role="menuitem" tabindex="-1" href="#" id="reveal-folder-from-sidebar-menu" data-localize="Reveal in Finder" data-lg="Front">Reveal in File Explorer</a>
+	                </li>
+	                <li role="presentation" class="file-action-item not-empty-menu-group show">
+	                    <a role="menuitem" tabindex="-1" href="#" id="open-folder-from-sidebar-menu" data-localize="Open Folder..." data-lg="Front">Open Folder...</a>
+	                </li>
+	                <li role="presentation" class="file-action-item not-empty-menu-group show">
+	                    <a role="menuitem" tabindex="-1" href="#" id="refresh-from-sidebar-menu" data-localize="Refresh Folder" data-lg="Front">Refresh Folder</a>
+	                </li>
+
+	                <li role="presentation" class="menuitem-group-label file-action-item file-sort-item file-action-item not-empty-menu-group show">
+	                    <span class="label" data-localize="Sort" data-lg="Front">Sort</span> 
+	                    <span class="sort-button-area">
+	                         <span>
+	                            <span id="ty-group-by-folder-btn" class="ty-icon ty-package ty-side-sort-btn active" ty-hint="Group By Folder"></span>
+	                        </span>
+	                        <span>
+	                            <span id="ty-sort-by-natural-btn" class="ty-icon ty-sort-by-natural ty-side-sort-btn ty-side-sort-btn2 active" ty-hint="Sort Naturally"></span>
+	                            <span id="ty-sort-by-name-btn" class="ty-icon ty-sort-a ty-side-sort-btn ty-side-sort-btn2" ty-hint="Sort by Name"></span>
+	                            <span id="ty-sort-by-date-btn" class="ty-icon ty-sort-t ty-side-sort-btn ty-side-sort-btn2" ty-hint="Sort by Modification Date"></span>
+	                        </span>
+	                    </span>
+	                    <div class="clearfix"></div>
+	                </li>
+
+	                <li role="presentation" class="menuitem-group-label file-action-item folder-menu-group show">
+	                    <span class="label" data-localize="Recent Locations" data-lg="Front">Recent Locations</span>
+	                </li>
+	                <li role="presentation" class="folder-menu-item folder-menu-group selected-folder-menu-item file-action-item show">
+	                    <a role="menuitem" tabindex="-1" href="#"><i class="fa fa-folder-o"></i><span></span></a>
+	                </li>
+
+	                <li role="presentation" class="menuitem-group-label file-action-item empty-menu-group" id="folder-menu-item-after"><span class="label" data-localize="Location" data-lg="Front">Location</span></li>
+	                 <li role="presentation" class="file-action-item empty-menu-group">
+	                    <a role="menuitem" tabindex="-1" href="#" id="open-folder-from-sidebar-menu" data-localize="Open Folder..." data-lg="Front">Open Folder...</a>
+	                </li>
+	            </ul>
+	        </div>
+	        <!--div class="sidebar-footer-item footer-btn" show-os="mac" id="hide-sidebar-btn" ty-hint="Hide Sidebar">
+	            <span>
+	                <span class="ty-icon ty-chevron-left"></span>
+	                <span></span>
+	            </span>
+	        </div-->
+	        <div class="sidebar-footer-item footer-item-right footer-btn file-action-item not-empty-menu-group show" id="switch-file-list-btn" ty-hint="Switch File List/Tree View">
+	            <span class="switch-file-list-btn-to-list">
+	                <span class="ty-icon ty-three-cells"></span>
+	            </span>
+	            <span class="switch-file-list-btn-to-tree">
+	                <span class="ty-icon ty-file-tree"></span>
+	            </span>
+	        </div>
 	    </div>
 	</div>
 		<div id="top-titlebar" class="stopselect">

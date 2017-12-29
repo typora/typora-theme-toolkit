@@ -1,3 +1,7 @@
+:root {
+    --side-bar-bg-color: #fafafa;
+}
+
 *.in-text-selection,
 ::selection {
     background: #dae3ea;
@@ -48,7 +52,7 @@ body {
 
 #top-titlebar {
     left: 0;
-    top: 0;
+    top: 4px;
     position: absolute;
     right: 0;
     font-family: Verdana, sans-serif;
@@ -61,6 +65,7 @@ body {
 #top-titlebar, #top-titlebar * {
     background-color: inherit;
     color: inherit;
+    color: var(--text-color);
 }
 
 #top-titlebar svg {
@@ -86,16 +91,15 @@ header button:focus {
 }
 
 .title-text {
-    padding-top: 8px;
+    padding-top: 9px;
     padding-right: 10px;
-    opacity: 0.8;
+    opacity: 0.9;
     color: gray;
-    font-size: 14px;
+    font-size: 12px;
     -webkit-flex: 1;
     flex: 1;
     cursor: default;
     display: inherit;
-    font-family: Consolas, monospace;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -132,7 +136,7 @@ header {
 }
 
 content {
-    overflow-y: scroll;
+    overflow-y: auto;
     position: absolute;
     height: auto;
     width: inherit;
@@ -272,11 +276,15 @@ div#table-insert-dialog {
 #md-notification {
     z-index: 8999;
     top: 28px;
-    left: 5px;
-    right: -1px;
-    box-shadow: none;
+    left: 0;
+    right: 0;
+    margin-top: -1px;
     width: auto;
-    border: 0px;
+    box-shadow: 0 1px 0 rgba(12,13,14,0.1), 
+        0 1px 3px rgba(12,13,14,0.1), 
+        0 4px 20px rgba(12,13,14,0.035), 
+        0 1px 1px rgba(12,13,14,0.025);
+
 }
 
 .megamenu-opened #md-searchpanel {
@@ -288,13 +296,13 @@ div#table-insert-dialog {
     content: "\f0a2";
     display: block;
     position: absolute;
-    top: 12px;
+    top: 8px;
     left: 10px;
 }
 
 .typora-node.pin-outline #md-searchpanel,
 .typora-node.pin-outline #md-notification {
-    left: 270px
+    left: var(--sidebar-width);
 }
 
 .megamenu-opened header {
@@ -316,13 +324,45 @@ div#table-insert-dialog {
 }
 
 #md-notification .close-btn {
-    display: none;
+    /*display: none;*/
+}
+
+.unibody-window #md-notification .close-btn .glyphicon-remove:before{
+    content: "OK";    
+}
+
+#md-notification p {
+    padding-left: 3ch;
+    padding-right: 24px;
+}
+
+.unibody-window  #md-notification p {
+    padding-left: 4ch;
+    padding-right: 48px;
+}
+
+.unibody-window #md-notification .close-btn {
+    top: 2px;
+    right: 12px;
+    border: 1px solid;
+    border-radius: 4px;
+}
+
+.unibody-window #md-notification .close-btn .glyphicon{
+    top: 0;
+}
+
+div.sidebar-content-content::-webkit-scrollbar-thumb:horizontal {
+    background: transparent;
+}
+
+#typora-sidebar:hover div.sidebar-content-content::-webkit-scrollbar-thumb:horizontal {
+    background: rgba(0, 0, 0, 0.3);
 }
 
 ::-webkit-scrollbar {
-    width: 12px;
-    /* 1px wider than Lion. */
-    /* This is more usable for users trying to click it. */
+    width: 8px;
+    height: 8px;
     background-color: rgba(0, 0, 0, 0);
     position: absolute;
 }
@@ -331,28 +371,45 @@ div#table-insert-dialog {
     background-color: rgba(0, 0, 0, 0.05);
 }
 
-::-webkit-scrollbar-thumb:vertical {
+::-webkit-scrollbar-thumb {
     background: rgba(0, 0, 0, 0.3);
     background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:active {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+::-webkit-scrollbar-thumb:vertical {
     border-left: 4px solid rgba(0, 0, 0, 0);
-    min-height: 10px;
+    border-left: 0;
+    min-height: 42px;
 }
 
 ::-webkit-scrollbar-thumb:vertical:active {
-    background: rgba(0, 0, 0, 0.5);
-    /* Some darker color when you click it */
     border-left: 0;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+    border-top: 2px solid rgba(0, 0, 0, 0);
+    border-top: 0; 
+    min-width: 32px;
+}
+
+::-webkit-scrollbar-thumb:horizontal:active {
+    border-top: 0;
 }
 
 #w-traffic-lights {
     -webkit-app-region: no-drag;
     float: right;
+    margin-top: -4px;
 }
 
 #w-titlebar-left {
     float: left;
-    max-width: calc(100% - 135px);
-    margin-top: -4px;
+    max-width: calc(100% - 150px);
+    margin-top: -8px;
 }
 
 .toolbar-icon.btn {
@@ -461,11 +518,17 @@ div#table-insert-dialog {
     display: block;
 }
 
+.context-menu {
+    background-color: var(--bg-color);
+}
+
 .menu-style-btn.active,
 .context-menu.dropdown-menu > .active > a,
 .context-menu.dropdown-menu > li > a:hover{
     background-color: #444445;
+    background-color: var(--item-hover-bg-color);
     color: white;
+    color: var(--item-hover-text-color);
 }
 
 .context-menu.dropdown-menu > li > a:focus {
@@ -611,6 +674,8 @@ div#table-insert-dialog {
     width: 200px;
     font-size: 13.5px;
     position: fixed;
+    padding-top: 4px;
+    padding-bottom: 4px;
 }
 
 ul.context-menu li {
@@ -716,10 +781,9 @@ footer {
     bottom: 0;
     color: inherit;
     font-size: 12px;
-    padding: 4px;
     padding-bottom: 2px;
     padding-top: 2px;
-    -webkit-app-region: drag;
+    padding-right: 4px;
     transition: 200ms;
     z-index: 2;
     height: 28px;
@@ -741,14 +805,19 @@ footer:hover #footer-more-btn{
 
 .show-footer footer {
     display: block;
-    z-index: 2;
+    z-index: 3; // larger tha codemirror cursor
+}
+
+footer {
+    height: 30px;
 }
 
 .footer-item {
     -webkit-app-region: no-drag;
     margin-bottom: -2px;
     margin-top: -2px;
-    line-height: 28px;
+    padding-top: -2px;
+    line-height: 30px;
 }
 
 .footer-item-left {
@@ -762,16 +831,9 @@ footer:hover #footer-more-btn{
 #outline-btn {
     opacity: 0.75;
     display: inline-block;
-    margin-left: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
     cursor: pointer;
-}
-
-.footer-btn {
-    cursor: pointer;
-    padding-left: 10px;
-    padding-right: 10px;
-    opacity: 0.8;
-    display: none;
 }
 
 #footer-more-btn {
@@ -793,13 +855,7 @@ footer:hover #footer-more-btn{
 .typora-sourceview-on #toggle-sourceview-btn {
     background: #eee;
     padding-left: 10px;
-    margin-left: -10px;
-}
-
-.footer-btn:hover {
-    background: #eee;
-    color:black;
-    opacity: 1;
+    margin-left: -2px;
 }
 
 .on-focus-mode #toggle-focus-mode-btn {
@@ -824,11 +880,6 @@ footer:hover #footer-more-btn{
 .typora-sourceview-on #toggle-sourceview-btn span {
     display: inline;
     font-size: 12px;
-}
-
-#outline-btn-wrapper {
-    padding-right: 4px;
-    margin-right: 4px;
 }
 
 #outline-btn:hover {
@@ -860,6 +911,19 @@ footer:hover #footer-more-btn{
 #footer-word-count {
     margin-right: 4px;
     opacity: 0.75;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-top: 0;
+}
+
+@media (max-width: 1000px) {
+    .modal-dialog {
+        width: 640px;
+    }
+
+    :root {
+        --sidebar-width: 240px;
+    }
 }
 
 @media (min-width: 1270px) {
@@ -902,49 +966,44 @@ footer:hover #footer-more-btn{
     }
 }
 
-
-
 /* ------------sidebar--------------- */
 
-.typora-node #outline-dropmenu {
+.typora-node #typora-sidebar {
     display: block;
     left: -300px;
     top: 0;
     bottom: 0;
     transition: 0.3s;
-    width: 270px;
+    width: var(--sidebar-width);
     box-shadow: none;
-    border-right: 1px solid #ddd;
-    background-color: #fafafa;
+    position: fixed;
 }
 
-.megamenu-opened #outline-dropmenu {
+.megamenu-opened #typora-sidebar {
     display: none;
 }
 
-.typora-node.pin-outline:not(.megamenu-opened):not(.typora-sourceview-on) #outline-dropmenu {
+.typora-node.pin-outline:not(.megamenu-opened):not(.typora-sourceview-on) #typora-sidebar {
     display: block;
     left: 0;
     transition: 0.3s;
 }
 
 .typora-node.pin-outline:not(.megamenu-opened):not(.typora-sourceview-on) #top-titlebar {
-    left: 270px;
+    left: var(--sidebar-width);
     position: absolute;
     transition: 0.3s;
 }
 
 .typora-node.pin-outline:not(.megamenu-opened):not(.typora-sourceview-on) footer {
-    left: 270px;
+    left: var(--sidebar-width);
     transition: 0.3s;
 }
 
-#outline-dropmenu {
+#typora-sidebar {
     padding-top: 0;
-    background-color: inherit;
     top: 26px;
     right: 14px;
-    -webkit-app-region: drag;
 }
 
 .outline-title-divider,
@@ -955,7 +1014,8 @@ footer:hover #footer-more-btn{
 .info-panel-tab-wrapper {
     width: 100%;
     display: flex;
-    height: 16px;
+    height: 12px;
+    margin-top: 4px;
     -webkit-app-region: drag;
 }
 
@@ -965,9 +1025,13 @@ footer:hover #footer-more-btn{
     float: left;
     text-align: center;
     line-height: 2.4;
-    color: #aaa;
     cursor: pointer;
-    margin-top: 16px;
+    margin-top: 18px;
+    opacity: 0.8;
+}
+
+.native-window .info-panel-tab {
+    margin-top: 12px;
 }
 
 .info-panel-tab-title {
@@ -977,57 +1041,43 @@ footer:hover #footer-more-btn{
 }
 
 .info-panel-tab:hover {
-    color: #777;
-}
-
-.info-panel-tab.active,
-.info-panel-tab.active:hover {
-    color: #777;
-    font-weight: bold;
-}
-
-.active .info-panel-tab-border {
-    height: 4px;
-    background-color: #777;
+    color: var(--text-color);
 }
 
 #outline-content {
-    padding-bottom: 8px;
+    display: block;
+    height: 100%;
+    overflow-x: hidden;
+    line-height: 1.1rem;
 }
 
 #outline-content:empty:before {
     content: "";
 }
 
+.active-tab-files.use-file-tree-style .sidebar-content{
+    bottom: 30px;
+}
+
+.sidebar-osx-tab {
+    display: none;
+}
+
+.native-window .sidebar-content {
+    top: 54px;
+}
+
 .sidebar-content {
     position: absolute;
     bottom: 0;
-    top: 56px;
+    top: 64px;
     display: flex;
     flex-direction: column;
     width: 100%;
-    -webkit-app-region: drag;
 }
 
-.typora-node #outline-content {
-    padding: 0 0;
-    padding-left: 28px;
-    padding-top: 8px;
-    overflow-y: scroll;
-    transition: 1s;
-    font-size: 13px;
-}
-
-.typora-node #outline-content::-webkit-scrollbar-thumb {
-    visibility: hidden;
-}
-
-.typora-node #outline-content:hover {
-    overflow-y: auto;
-}
-
-.typora-node #outline-content:hover::-webkit-scrollbar-thumb {
-    visibility: visible;
+.sidebar-content-content {
+    font-size: 14px;
 }
 
 #file-info-content {
@@ -1145,10 +1195,7 @@ footer:hover #footer-more-btn{
 }
 
 @media (max-width: 500px) {
-    #outline-btn {
-        display: none;
-    }
-    .typora-node.pin-outline:not(.megamenu-opened) #outline-dropmenu {
+    .typora-node.pin-outline:not(.megamenu-opened) #typora-sidebar {
         display: none;
     }
     .typora-node.pin-outline #write {
@@ -1194,6 +1241,10 @@ footer:hover #footer-more-btn{
     text-decoration: none;
 }
 
+#megamenu-section-open {
+    padding-bottom: 64px;
+}
+
 .context-menu.dropdown-menu > li > a {
     padding: 2px 20px;
     color: inherit;    
@@ -1219,10 +1270,12 @@ footer:hover #footer-more-btn{
 }
 
 #footer-word-count-info {
-    right: 0;
-    bottom: 30px;
+    right: 4px;
+    bottom: 32px;
     left: auto;
     top: auto;
+    padding-top: 8px;
+    padding-bottom: 4px;
 }
 
 #footer-word-count-info-close {
@@ -1270,8 +1323,178 @@ footer:hover #footer-more-btn{
 #footer-word-count:hover,
 .show-word-count #footer-word-count {
     background: #eee;
+    background: var(--item-hover-bg-color);
+    color: var(--item-hover-text-color);
 }
 
 .show-word-count #footer-word-count-info.dropdown-menu {
     display: block;
+}
+
+.show-word-count-in-selection li.footer-word-count-selection {
+    display: list-item;;
+}
+
+.show-word-count-in-selection span.footer-word-count-selection {
+    display:inline
+}
+
+.footer-word-count-selection {
+    display: none;
+}
+
+.show-word-count-in-selection .footer-word-count-no-selection {
+    display: none;
+}
+
+/** file tree */
+.file-node-content {
+    line-height: 20px;
+    margin-bottom: 0;
+}
+
+.active-tab-files .sidebar-content .draggable-rect {
+    display: none;
+}
+
+.active-tab-files #info-panel-tab-file,
+.active-tab-files #info-panel-tab-file:hover,
+.active-tab-outline #info-panel-tab-outline,
+.active-tab-outline #info-panel-tab-outline:hover {
+    font-weight: bold;
+    opacity: 1;
+}
+
+.active-tab-files #info-panel-tab-file .info-panel-tab-border,
+.active-tab-outline #info-panel-tab-outline .info-panel-tab-border {
+    height: 4px;
+    background-color: currentColor;
+}
+
+.active-tab-files .sidebar-content{
+    overflow-x: auto;
+    flex-direction: row;
+    overflow-y: hidden;
+}
+
+.active-tab-files #file-library {
+    display: block;
+    flex: none;
+    overflow-y: auto;
+    overflow-x: auto;
+    width: 100%;
+    height: 100%;
+}
+
+#file-library-tree {
+    height: initial;
+}
+
+.sidebar-footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    border-top: 1px solid #ddd;
+    border-top: var(--window-border);
+    z-index: 2;
+    background: inherit;
+    font-size: 12px;
+}
+
+.active-tab-files.use-file-tree-style .sidebar-footer{
+    display: flex;
+    opacity: 1;
+    animation: none !important;
+}
+
+.use-file-tree-style .sidebar-footer-item:not(#sidebar-new-file-btn){
+    opacity: 0;
+}
+
+#typora-sidebar.use-file-tree-style:hover .sidebar-footer-item:not(#sidebar-new-file-btn) {
+    webkit-animation: fadein 0.5s;
+    animation: fadein 0.5s;
+    opacity: 1;
+}
+
+.sidebar-content.on-drop:after {
+    bottom: 3px;
+}
+
+#file-library {
+    padding-bottom: 30px;
+}
+
+.sidebar-footer-item {
+    line-height: 28px;
+}
+
+.file-list-item-file-name {
+    line-height: 20px;
+}
+
+.file-list-item {
+    line-height: 18px;
+}
+
+.file-list-item-parent-loc, 
+.file-list-item-time,
+.file-list-item-summary {
+    font-family: inherit;
+}
+
+@media (min-height: 1000px) {
+    .file-list-item {
+        line-height: 24px;
+        font-size: 14px;
+    }
+
+    .file-list-item-summary {
+        font-size: 13px;
+    }
+}
+
+[show-os="mac"] {
+    display: none;
+}
+
+#save-error-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    font-size: 14px;
+    background: #f1d7d6;
+    border-bottom: 1px solid #ceb1b0;
+    z-index: 99;
+}
+
+#save-error-banner .content {
+    flex: 1;
+    padding: 8px;
+    padding-left: 16px;
+}
+
+#save-error-banner .btn {
+    flex: 1;
+    margin-right: 12px;
+    border-radius: 2px;
+    font-size: 12px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+#save-error-banner .fa-chevron-down {
+    font-size: 12px;
+    margin-right: 16px;
+    line-height: 32px;
+    margin-top: 4px;
+    cursor: pointer;
+}
+
+#typora-quick-open {
+    top: 0;
 }

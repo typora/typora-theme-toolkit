@@ -1,7 +1,17 @@
+:root {
+    --bg-color:  #ffffff;
+    --text-color: #333333;
+    --code-block-bg-color: inherit;//#f8f8f8;
+}
+
 html {
     font-size: 14px;
     background-color: #ffffff;
+    background-color: var(--bg-color);
     color: #333333;
+    color: var(--text-color);
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
 }
 
 body {
@@ -12,7 +22,6 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 1rem;
     line-height: 1.42857143;
     overflow-x: hidden;
@@ -39,6 +48,13 @@ a:hover {
     position: relative;
     padding-bottom: 70px;
     white-space: pre-wrap;
+    overflow-x: visible;
+    /*contain: layout paint;*/
+}
+
+.for-image #write {
+    padding-left: 8px;
+    padding-right: 8px;
 }
 
 body.typora-export {
@@ -75,8 +91,13 @@ body.typora-export {
     margin-top: 30px;
 }
 
+#write li > table:first-child {
+    margin-top: -20px;
+}
+
 img {
     max-width: 100%;
+    vertical-align: middle;
 }
 
 input,
@@ -111,8 +132,6 @@ input[type="radio"] {
 #write pre {
     width: inherit;
 }
-
-
 
 #write p,
 #write h1,
@@ -155,6 +174,10 @@ p {
     -webkit-margin-end: 0px;
 }
 
+.typora-export p {
+    white-space: normal;
+}
+
 .mathjax-block {
     margin-top: 0;
     margin-bottom: 0;
@@ -182,11 +205,33 @@ a {
     cursor: pointer;
 }
 
+sup.md-footnote {
+    padding: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
+    background-color: rgba(238, 238, 238, 0.7);
+    color: #555;
+    border-radius: 4px;
+}
+
 #write input[type='checkbox'] {
     cursor: pointer;
     width: inherit;
     height: inherit;
     margin: 4px 0 0;
+}
+
+#write > figure:first-child {
+    margin-top: 16px;
+}
+
+figure {
+    overflow-x: auto;
+    margin: 0;
+    max-width: calc(100% + 16px);
+    padding: 8px;
+    margin-left: -8px;
+    margin-top: -8px;
 }
 
 tr {
@@ -253,6 +298,7 @@ pre {
     overflow: visible;
     white-space: pre;
     background: inherit;
+    background: var(--code-block-bg-color);
 }
 
 .md-diagram-panel {
@@ -279,6 +325,10 @@ pre {
 
 .show-fences-line-number .md-fences.mock-cm {
     padding-left: 40px;
+}
+
+.CodeMirror-line {
+    page-break-inside: avoid;
 }
 
 .footnotes {
@@ -352,10 +402,16 @@ blockquote >:first-child {
 }
 
 @media print {
-    html,
-    body {
-        height: 100%;
+    /**
+     * needed to prevent extra blank page
+     */
+    html, body {
+        border: 1px solid transparent;
+        height: 99%;
+        page-break-after: avoid;
+        page-break-before: avoid;
     }
+
     .typora-export * {
         -webkit-print-color-adjust: exact;
     }
@@ -382,6 +438,8 @@ blockquote >:first-child {
     .typora-export #write {
         padding-left: 1cm;
         padding-right: 1cm;
+        padding-bottom: 0;
+        page-break-after: avoid;
     }
 
     .typora-export #write:after {
@@ -423,9 +481,15 @@ pre.md-meta-block {
     ;
     background: #cccccc;
     display: block;
+    overflow-x: hidden;
 }
 
-p>.md-image:only-child {
+p > img:only-child {
+    display: block;
+    margin: auto;
+}
+
+p .md-image:only-child{
     display: inline-block;
     width: 100%;
     text-align: center;
@@ -494,6 +558,9 @@ p + .mathjax-block {
 .md-toc-item {
     display: block;
     color: #4183c4;
+}
+
+.md-toc-item a {
     text-decoration: none;
 }
 
@@ -569,6 +636,12 @@ a.md-toc-inner {
     opacity: 0.5;
 }
 
+.md-comment {
+    color: #a27f03;
+    opacity: 0.8;
+    font-family: monospace;
+}
+
 code {
     text-align: left;
 }
@@ -583,7 +656,7 @@ h6 .md-tag {
     opacity: 0.35;
 }
 
-a.md-header-anchor.md-print-anchor {
+a.md-print-anchor {
     border-left: none !important;
     border-right: none !important;
     border-top: none !important;
@@ -612,7 +685,8 @@ a.md-header-anchor.md-print-anchor {
     max-height: none;
     min-width: 0;
     min-height: 0;
-    width: 100%;
+    min-width: 100%;
+    width: auto;
 }
 
 .MathJax_SVG_Display,
@@ -661,6 +735,16 @@ a.md-header-anchor.md-print-anchor {
     -moz-transition: none;
     -ms-transition: none;
     -o-transition: none
+}
+
+/* for pretty print*/
+.md-diagram-panel>svg {
+    max-width: 100%;
+}
+
+[lang="flow"] svg,
+[lang="mermaid"] svg  {
+    max-width: 100%;
 }
 
 
