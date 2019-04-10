@@ -4,7 +4,7 @@ This toolkit contains a simple theme template, and sample `.md` file for testing
 
 ## How to use
 
-Copy and rename your `.css` theme file as `html-preview/test.css` and copy related resources, like images or fonts or imported css used by your css file into correspond folder. Then open `.html` files under folder `html-preview/html` by your browser to preview/debug your css theme.
+Copy and rename your `.css` theme file as `html-preview/theme/test.css` and copy related resources, like images or fonts or imported css used by your css file into correspond folder. Then open `.html` files under folder `html-preview/html` by your browser to preview/debug your css theme.
 
 ## HTML files
 
