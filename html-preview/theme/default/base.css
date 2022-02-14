@@ -1,7 +1,17 @@
 :root {
     --bg-color:  #ffffff;
     --text-color: #333333;
-    --code-block-bg-color: inherit;//#f8f8f8;
+
+    --select-text-bg-color:  #B5D6FC;
+    --select-text-font-color: auto;
+
+    --monospace: "Lucida Console", Consolas, "Courier", monospace;
+
+    --title-bar-height: 20px;
+}
+
+.mac-os-11 {
+    --title-bar-height: 28px;
 }
 
 html {
@@ -26,6 +36,16 @@ body {
     line-height: 1.42857143;
     overflow-x: hidden;
     background: inherit;
+    tab-size: 4;
+    font-display：swap;
+}
+
+iframe {
+    margin: auto;
+}
+
+a.url {
+    word-break: break-all;
 }
 
 a:active,
@@ -37,6 +57,9 @@ a:hover {
 ::selection {
     background: #B5D6FC;
     text-shadow: none;
+
+    background: var(--select-text-bg-color);
+    color: var(--select-text-font-color);
 }
 
 #write {
@@ -46,10 +69,23 @@ a:hover {
     word-break: normal;
     word-wrap: break-word;
     position: relative;
-    padding-bottom: 70px;
-    white-space: pre-wrap;
+    white-space: normal;
     overflow-x: visible;
+    padding-top: 36px;
     /*contain: layout paint;*/
+}
+
+#write.first-line-indent p {
+    text-indent: 2em;
+}
+
+#write.first-line-indent p *,
+#write.first-line-indent li p{
+    text-indent: 0;
+}
+
+#write.first-line-indent li {
+    margin-left: 2em;
 }
 
 .for-image #write {
@@ -62,10 +98,25 @@ body.typora-export {
     padding-right: 30px;
 }
 
+.typora-export p, 
+.typora-export li, 
+.typora-export .footnote-line {
+    white-space: pre-wrap;
+}
+
+.typora-export .task-list-item input {
+    pointer-events: none;
+}
+
 @media screen and (max-width: 500px) {
     body.typora-export {
         padding-left: 0;
         padding-right: 0;
+    }
+
+    #write {
+        padding-left: 20px;
+        padding-right: 20px;
     }
 
     /** remove codemirror line number for small screen */
@@ -77,28 +128,28 @@ body.typora-export {
     }
 }
 
-.typora-export #write {
+/*.typora-export #write {
     margin: 0 auto;
+}*/
+
+#write li > figure:last-child {
+    margin-bottom: 0.5rem;
 }
 
-#write > p:first-child,
-#write > ul:first-child,
-#write > ol:first-child,
-#write > pre:first-child,
-#write > blockquote:first-child,
-#write > div:first-child,
-#write > table:first-child {
-    margin-top: 30px;
-}
-
-#write li > table:first-child {
-    margin-top: -20px;
+#write ol,
+#write ul {
+    position: relative;
 }
 
 img {
     max-width: 100%;
     vertical-align: middle;
+    image-orientation: from-image;
 }
+
+/*.html-for-mac .md-svg-img {
+    max-width: none;
+}*/
 
 input,
 button,
@@ -128,7 +179,6 @@ input[type="radio"] {
 #write h4,
 #write h5,
 #write h6,
-#write div,
 #write pre {
     width: inherit;
 }
@@ -141,6 +191,26 @@ input[type="radio"] {
 #write h5,
 #write h6 {
     position: relative;
+}
+
+p {
+    line-height: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    page-break-after: avoid;
+    break-after: avoid-page;
+    page-break-inside: avoid;
+    orphans: 4;
+}
+
+p {
+    orphans: 4;
 }
 
 h1 {
@@ -167,28 +237,14 @@ h6 {
     font-size: 1rem;
 }
 
-p {
-    -webkit-margin-before: 1rem;
-    -webkit-margin-after: 1rem;
-    -webkit-margin-start: 0px;
-    -webkit-margin-end: 0px;
+h1, h2, h3, h4, h5, h6, p, .md-rawblock, .md-math-block {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
-
-.typora-export p {
-    white-space: normal;
-}
-
-.mathjax-block {
-    margin-top: 0;
-    margin-bottom: 0;
-    -webkit-margin-before: 0rem;
-    -webkit-margin-after: 0rem;
-}
-
 
 /*
-    Hack to remove background from Mobile Safari.
-    Can't use it globally since it destroys checkboxes in Firefox and Opera
+	Hack to remove background from Mobile Safari.
+	Can't use it globally since it destroys checkboxes in Firefox and Opera
 */
 
 .hidden {
@@ -212,31 +268,39 @@ sup.md-footnote {
     background-color: rgba(238, 238, 238, 0.7);
     color: #555;
     border-radius: 4px;
+    cursor: pointer;
+}
+
+sup.md-footnote a,
+sup.md-footnote a:hover{
+    color: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
 }
 
 #write input[type='checkbox'] {
     cursor: pointer;
     width: inherit;
     height: inherit;
-    margin: 4px 0 0;
-}
-
-#write > figure:first-child {
-    margin-top: 16px;
 }
 
 figure {
     overflow-x: auto;
     margin: 0;
     max-width: calc(100% + 16px);
-    padding: 8px;
-    margin-left: -8px;
-    margin-top: -8px;
+    padding: 0;
+    margin-left: 0;
+    margin-top: 1.2em;
+    margin-bottom: 1.2em;
+}
+
+figure > table {
+    margin: 0;
 }
 
 tr {
     page-break-inside: avoid;
-    page-break-after: auto
+    page-break-after: auto;
 }
 
 thead {
@@ -253,12 +317,16 @@ table {
 }
 
 table.md-table td {
-    min-width: 80px;
+    min-width: 32px;
 }
 
 .CodeMirror-gutters {
     border-right: 0;
     background-color: inherit;
+}
+
+.CodeMirror-linenumber {
+    user-select: none;
 }
 
 .CodeMirror {
@@ -281,8 +349,16 @@ div.hr:focus {
     cursor: none;
 }
 
-pre {
+#write pre {
     white-space: pre-wrap;
+}
+
+#write.fences-no-line-wrapping pre {
+    white-space: pre;
+}
+
+#write pre.ty-contain-cm {
+    white-space: normal;
 }
 
 .CodeMirror-gutters {
@@ -298,10 +374,9 @@ pre {
     overflow: visible;
     white-space: pre;
     background: inherit;
-    background: var(--code-block-bg-color);
 }
 
-.md-diagram-panel {
+.md-fences-adv-panel {
     width: 100%;
     margin-top: 10px;
     text-align: center;
@@ -310,36 +385,37 @@ pre {
     overflow-x: auto;
 }
 
-.md-fences .CodeMirror.CodeMirror-wrap {
-    top: -1.6em;
-    margin-bottom: -1.6em;
-}
-
-.md-fences.mock-cm {
+#write .md-fences.mock-cm {
     white-space: pre-wrap;
 }
 
-.show-fences-line-number .md-fences {
+.md-fences.md-fences-with-lineno {
     padding-left: 0;
 }
 
-.show-fences-line-number .md-fences.mock-cm {
-    padding-left: 40px;
+#write.fences-no-line-wrapping .md-fences.mock-cm {
+    white-space: pre;
+    overflow-x: auto; 
 }
 
-.CodeMirror-line {
+.md-fences.mock-cm.md-fences-with-lineno {
+    padding-left: 8px;
+}
+
+.CodeMirror-line,
+twitterwidget {
     page-break-inside: avoid;
 }
 
 .footnotes {
     opacity: 0.8;
     font-size: 0.9rem;
-    padding-top: 1em;
-    padding-bottom: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 
 .footnotes+.footnotes {
-    margin-top: -1em;
+    margin-top: 0;
 }
 
 .md-reset {
@@ -376,8 +452,12 @@ blockquote {
 }
 
 li p,
-li .mathjax-block {
+li .mathjax-block{
     margin: 0.5rem 0;
+}
+
+li blockquote {
+    margin: 1rem 0;
 }
 
 li {
@@ -389,7 +469,8 @@ blockquote >:last-child {
     margin-bottom: 0;
 }
 
-blockquote >:first-child {
+blockquote > *:first-child,
+li > *:first-child {
     margin-top: 0;
 }
 
@@ -399,6 +480,11 @@ blockquote >:first-child {
     /*10px*/
     padding-bottom: 0.143rem;
     /*20px*/
+    white-space: normal;
+}
+
+#write .footnote-line {
+    white-space: pre-wrap;
 }
 
 @media print {
@@ -410,35 +496,20 @@ blockquote >:first-child {
         height: 99%;
         page-break-after: avoid;
         page-break-before: avoid;
+        font-variant-ligatures: no-common-ligatures;
+    }
+
+    #write {
+        border-color: transparent !important;
+        margin-top: 0;
+        padding-top: 0;
     }
 
     .typora-export * {
         -webkit-print-color-adjust: exact;
     }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        page-break-after: avoid;
-        break-after: avoid-page;
-        orphans: 2;
-    }
-
-    p {
-        orphans: 4;
-    }
-
-    html.blink-to-pdf {
-        font-size: 13px;
-    }
-
     .typora-export #write {
-        padding-left: 1cm;
-        padding-right: 1cm;
-        padding-bottom: 0;
         page-break-after: avoid;
     }
 
@@ -446,21 +517,32 @@ blockquote >:first-child {
         height: 0;
     }
 
+    .is-mac table {
+        page-break-inside: avoid;
+    }
+
+    /*
+    https://stackoverflow.com/questions/9238868/how-do-i-avoid-a-page-break-immediately-after-a-heading
+    h1::after, h2::after, h3::after, h4::after, h5::after, h6::after {
+        content: " ";
+        display: block;
+        height: 100px;
+        margin-bottom: -100px;
+    }*/
+
+    /*
+    remove to fix #2473
     @page {
         margin-top: 20mm;
         margin-bottom: 20mm;
         margin-left: 0mm;
         margin-right: 0mm;
     }
+    */
 
-    /*body.typora-export {
-        padding-top: 30px;
-        padding-bottom: 30px;
+    .typora-export-show-outline .typora-export-sidebar {
+        display: none;
     }
-
-    .md-toc {
-        page-break-inside: avoid;
-    }*/
 }
 
 .footnote-line {
@@ -475,63 +557,70 @@ img a {
 
 pre.md-meta-block {
     font-size: 0.8rem;
-    min-height: 2.86rem;
+    min-height: 0.8rem;
     /*40px*/
     white-space: pre-wrap;
-    ;
     background: #cccccc;
     display: block;
     overflow-x: hidden;
 }
 
-p > img:only-child {
+p > img:only-child,
+p > .md-image:only-child:not(.md-img-error) img {
     display: block;
     margin: auto;
 }
 
-p .md-image:only-child{
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img {
+    left: -2em;
+    position: relative;
+}
+
+p > .md-image:only-child{
     display: inline-block;
     width: 100%;
-    text-align: center;
 }
 
 #write .MathJax_Display {
     margin: 0.8em 0 0 0;
 }
 
-.mathjax-block {
-    white-space: pre;
-    overflow: hidden;
+.md-math-block {
     width: 100%;
 }
 
-p + .mathjax-block {
-    margin-top: -1.143rem;
-}
-
-.mathjax-block:not(:empty):after {
+.md-math-block:not(:empty):after {
     display: none;
 }
 
+.MathJax_ref {
+    fill: currentColor;
+}
+
 [contenteditable="true"]:active,
-[contenteditable="true"]:focus {
+[contenteditable="true"]:focus,
+[contenteditable="false"]:active,
+[contenteditable="false"]:focus {
     outline: none;
     box-shadow: none;
 }
 
-.task-list {
+.md-task-list-item {
+    position: relative;
     list-style-type: none;
 }
 
-.task-list-item {
-    position: relative;
-    padding-left: 1em;
+.task-list-item.md-task-list-item {
+    padding-left: 0;
 }
 
-.task-list-item input {
+.md-task-list-item>input {
     position: absolute;
     top: 0px;
     left: 0px;
+    margin-left: -1.2em;
+    margin-top: calc(1em - 10px);
+    border: none;
 }
 
 .math {
@@ -565,7 +654,7 @@ p + .mathjax-block {
 }
 
 .md-toc-inner:hover {
-    //text-decoration: underline;
+    text-decoration: underline;
 }
 
 .md-toc-inner {
@@ -632,31 +721,40 @@ a.md-toc-inner {
     content: ".";
 }
 
-.md-tag {
-    opacity: 0.5;
+pre,
+code,
+tt,
+samp {
+   font-family: var(--monospace);
+}
+
+kbd {
+    margin: 0 .1em;
+    padding: .1em .6em;
+    font-size: .8em;
+    color: #242729;
+    background: white;
+    border: 1px solid #adb3b9;
+    border-radius: 3px;
+    box-shadow: 0 1px 0 rgba(12,13,14,0.2), 0 0 0 2px #FFF inset;
+    white-space: nowrap;
+    vertical-align: middle;
 }
 
 .md-comment {
     color: #a27f03;
-    opacity: 0.8;
+    opacity: 0.6;
     font-family: monospace;
+    font-family: var(--monospace);
 }
 
 code {
     text-align: left;
-}
-
-h1 .md-tag,
-h2 .md-tag,
-h3 .md-tag,
-h4 .md-tag,
-h5 .md-tag,
-h6 .md-tag {
-    font-weight: initial;
-    opacity: 0.35;
+    vertical-align: initial;
 }
 
 a.md-print-anchor {
+    white-space: pre !important;
     border-left: none !important;
     border-right: none !important;
     border-top: none !important;
@@ -671,70 +769,8 @@ a.md-print-anchor {
     text-shadow: initial !important;
 }
 
-.md-inline-math .MathJax_SVG .noError {
-    display: none !important;
-}
-
-.mathjax-block .MathJax_SVG_Display{
-    display: block!important;
-    text-align: center;
-    margin: 1em 0em;
-    position: relative;
-    text-indent: 0;
-    max-width: none;
-    max-height: none;
-    min-width: 0;
-    min-height: 0;
-    min-width: 100%;
-    width: auto;
-}
-
-.MathJax_SVG_Display,
-.md-inline-math .MathJax_SVG_Display{
-    display: inline-block !important;
-    width: auto;
-    margin: inherit;
-}
-
-.MathJax_SVG .MJX-monospace {
-    font-family: monospace
-}
-
-.MathJax_SVG .MJX-sans-serif {
-    font-family: sans-serif
-}
-
-.MathJax_SVG {
-    display: inline;
-    font-style: normal;
-    font-weight: normal;
-    line-height: normal;
-    zoom: 90%;
-    font-size-adjust: none;
-    text-indent: 0;
-    text-align: left;
-    text-transform: none;
-    letter-spacing: normal;
-    word-spacing: normal;
-    word-wrap: normal;
-    white-space: nowrap;
-    float: none;
-    direction: ltr;
-    max-width: none;
-    max-height: none;
-    min-width: 0;
-    min-height: 0;
-    border: 0;
-    padding: 0;
-    margin: 0
-}
-
-.MathJax_SVG * {
-    transition: none;
-    -webkit-transition: none;
-    -moz-transition: none;
-    -ms-transition: none;
-    -o-transition: none
+.os-windows.monocolor-emoji .md-emoji {
+    font-family: "Segoe UI Symbol", sans-serif;
 }
 
 /* for pretty print*/
@@ -745,6 +781,305 @@ a.md-print-anchor {
 [lang="flow"] svg,
 [lang="mermaid"] svg  {
     max-width: 100%;
+    height: auto;
 }
 
+[lang="mermaid"] .node text {
+    font-size: 1rem;
+}
 
+table tr th {
+    border-bottom: 0;
+}
+
+video {
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+
+iframe {
+    max-width: 100%;
+    width: 100%;
+    border: none;
+}
+
+.highlight tr, 
+.highlight td {
+    border: 0;
+}
+
+mark {
+    background: #ff0;
+    color: #000;
+}
+
+.md-html-inline .md-plain,
+.md-html-inline strong,
+mark strong, 
+mark .md-inline-math {
+    color: inherit
+}
+
+.md-expand mark .md-meta {
+    opacity: 0.3 !important;
+}
+
+mark .md-meta {
+    color: #000;
+}
+
+@media print {
+    .typora-export h1,
+    .typora-export h2,
+    .typora-export h3,
+    .typora-export h4,
+    .typora-export h5,
+    .typora-export h6 {
+        page-break-inside: avoid;
+    }
+
+    /*.typora-export h1::after,
+    .typora-export h2::after,
+    .typora-export h3::after,
+    .typora-export h4::after,
+    .typora-export h5::after,
+    .typora-export h6::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-bottom: -100px;
+    }*/
+}
+
+.md-diagram-panel .messageText {
+    stroke: none !important;
+}
+
+.md-diagram-panel .start-state {
+    fill: var(--node-fill);
+}
+
+.md-diagram-panel  .edgeLabel rect {
+    opacity: 1 !important;
+}
+
+.md-fences.md-fences-math {
+    font-size: 1em;
+}
+
+.md-fences-advanced:not(.md-focus) {
+    padding: 0;
+    white-space: nowrap;
+    border: 0;
+}
+
+.md-fences-advanced:not(.md-focus) {
+    background: inherit;
+}
+
+.typora-export-show-outline .typora-export-content {
+    max-width: 1440px;
+    margin: auto;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: row;
+}
+
+.typora-export-sidebar {
+    width: 300px;
+    font-size: 0.8rem;
+    margin-top: 80px;
+    margin-right: 18px;
+}
+
+.typora-export-show-outline #write {
+  --webkit-flex: 2;
+  flex: 2;
+}
+
+.typora-export-sidebar .outline-content {
+    position: fixed;
+    top: 0;
+    max-height: 100%;
+    overflow-y: auto;
+    padding-bottom: 30px;
+    padding-top: 60px;
+    width: 300px;
+    overflow-x: hidden;
+}
+
+@media screen and (max-width: 1024px) {
+    .typora-export-sidebar,
+    .typora-export-sidebar .outline-content {
+        width: 240px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .typora-export-sidebar {
+        display: none;
+    }
+} 
+
+.outline-content li,
+.outline-content ul {
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+  list-style: none;
+}
+
+.outline-content ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.outline-content strong {
+  font-weight: normal;
+}
+
+.outline-expander {
+  width: 1rem;
+  height: 1.428571429rem;
+  position: relative;
+  display: table-cell;
+  vertical-align: middle;
+  cursor: pointer;
+  padding-left: 4px; 
+}
+
+.outline-expander:before {
+  content: "\f125";
+  position: relative;
+  font-family: "Ionicons";
+  display: inline-block;
+  font-size: 8px;
+  vertical-align: middle;
+}
+
+.outline-item {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  cursor: pointer;
+}
+
+.outline-expander:hover:before {
+  content: "\f123";
+}
+
+.outline-h1>.outline-item {
+  padding-left: 0
+}
+
+.outline-h2>.outline-item {
+  padding-left: 1em;
+}
+
+.outline-h3>.outline-item {
+  padding-left: 2em;
+}
+
+.outline-h4>.outline-item {
+  padding-left: 3em;
+}
+
+.outline-h5>.outline-item {
+  padding-left: 4em;
+}
+
+.outline-h6>.outline-item {
+  padding-left: 5em;
+}
+
+.outline-label {
+  cursor: pointer;
+  display: table-cell;
+  vertical-align: middle;
+  text-decoration: none;
+  color: inherit;
+}
+
+.outline-label:hover {
+  text-decoration: underline;
+}
+
+.outline-item:hover {
+  background-color: #f5f5f5;
+  background-color: var(--item-hover-bg-color);
+  border-color: #f5f5f5;
+  background-color: var(--item-hover-bg-color);
+}
+
+.outline-item:hover {
+  margin-left: -28px;
+  margin-right: -28px;
+  border-left: 28px solid transparent;
+  border-right: 28px solid transparent;
+}
+
+.outline-item-single .outline-expander:before,
+.outline-item-single .outline-expander:hover:before {
+  display: none;
+}
+
+.outline-item-open>.outline-item>.outline-expander:before {
+  content: "\f123";
+}
+
+.outline-children {
+  display: none;
+}
+
+.info-panel-tab-wrapper {
+  display: none;
+}
+
+.outline-item-open>.outline-children {
+  display: block;
+}
+
+.typora-export .outline-item {
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
+.typora-export .outline-item:hover {
+    margin-right: -8px;
+    border-right: 8px solid transparent;
+}
+
+.typora-export .outline-expander:before {
+  /*content: "►";*/
+  content: "+";
+  font-family: inherit;
+  top: -1px;
+}
+
+.typora-export .outline-item-open>.outline-item>.outline-expander:before,
+.typora-export .outline-expander:hover:before {
+  content: "−";
+  /*content: "▼";*/
+}
+
+.typora-export-collapse-outline .outline-children {
+  display: none;
+}
+
+.typora-export-collapse-outline .outline-item-open > .outline-children, 
+.typora-export-no-collapse-outline .outline-children {
+  display: block;
+}
+
+.typora-export-no-collapse-outline .outline-expander:before {
+  content: "" !important;
+}
+
+.typora-export-show-outline .outline-item-active>.outline-item .outline-label {
+    font-weight: bold;
+}
+
+.md-inline-math-container mjx-container {
+    zoom: 0.95;
+}

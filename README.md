@@ -1,3 +1,12 @@
+# Deprecation
+
+This toolkit is now **Deprecated**.
+
+Typora may use a newer and slightly different CSS classes in each version up, so we now recommand you to test and debug in Typora directly.
+
+- On macOS, you could check `Help` -> `Enable Debug` menu item, then right click anywhere in Typora’s hybrid edit view, then click “Inspect Elements” from context menu.
+- On Windows/Linux, you could open DevTools from `View` -> `Toggle DevTools` menu item.
+
 # Theme Toolkit
 
 This toolkit contains a simple theme template, a sample `.md` file for testing, and some HTML files for designers/developers to preview/debug css themes right inside their browser.
